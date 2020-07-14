@@ -1,8 +1,10 @@
 .Posts{
-    width: 100%;
+    width: 85%;
     height: auto;
-    background-image: linear-gradient(to right, #434343 0%, black 100%);
+    background-color: #f4eeff;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    border: 1px solid #e9e3f3;
+    z-index: 1;
 }

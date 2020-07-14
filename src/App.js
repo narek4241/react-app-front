@@ -10,7 +10,8 @@ const data = [
     price: '30000$',
     title: 'Mercedes-Benz E-class 2015',
     
-    category: 'transport',
+    cat: 'transport',
+    telNumber: '+37411001100',
     desc: 'The Mercedes-Benz E-Class 2015 is a range of executive cars manufactured by German automaker Mercedes-Benz in various engine and body configurations. Produced since 1953, the E-Class falls midrange in the Mercedes line-up, and has been marketed worldwide across five generations.',
     avatar: 'https://png.pngtree.com/png-clipart/20190924/original/pngtree-user-vector-avatar-png-image_4830521.jpg',
     userName: 'David',
@@ -22,7 +23,7 @@ const data = [
     price: '20000$',
     title: 'Mercedes-Benz E-class 2010',
     
-    category: 'transport',
+    cat: 'transport',
     desc: 'The Mercedes-Benz E-Class 2010 is a range of executive cars manufactured by German automaker Mercedes-Benz in various engine and body configurations. Produced since 1953, the E-Class falls midrange in the Mercedes line-up, and has been marketed worldwide across five generations.',
     avatar: 'https://png.pngtree.com/png-clipart/20190924/original/pngtree-user-vector-avatar-png-image_4830521.jpg',
     userName: 'David',
@@ -34,10 +35,12 @@ const data = [
     title: 'Mercedes-Benz E-class 2018',
     price: '40000$',
     
-    category: 'transport',
+    cat: 'transport',
+    telNumber: '+37411001100',
     desc: 'The Mercedes-Benz E-Class is a range of executive cars manufactured by German automaker Mercedes-Benz in various engine and body configurations. Produced since 1953, the E-Class falls midrange in the Mercedes line-up, and has been marketed worldwide across five generations.',
     avatar: 'https://png.pngtree.com/png-clipart/20190924/original/pngtree-user-vector-avatar-png-image_4830521.jpg',
     userName: 'Arman',
+
     date: '05.06.2020'
   },
   {
@@ -46,7 +49,8 @@ const data = [
     title: 'Apple MacbookPro 16inch ',
     price: '2000$',
     
-    category: 'electronics',
+    cat: 'electronics',
+    telNumber: '+37411001100',
     desc: 'The Mac Pro is a series of workstations and servers for professionals designed, manufactured and sold by Apple Inc. since 2006. The Mac Pro, in most configurations and in terms of speed and performance, is the most powerful computer that Apple offers. It is one of four desktop computers in the current Macintosh lineup, sitting above the consumer range Mac Mini and iMac, and alongside the all-in-one iMac Pro.',
     avatar: 'https://library.kissclipart.com/20180909/goe/kissclipart-avatar-icon-developer-clipart-computer-icons-progr-8837b27ee602fca5.png',
     userName: 'John',
@@ -58,7 +62,8 @@ const data = [
     title: 'HyperX Ram 16gb DDR4',
     price: '500$',
     
-    category: 'electronics',
+    cat: 'electronics',
+    telNumber: '+37411001100',
     desc: 'Released to the market in 2014,[1][2][3] it is a variant of dynamic random-access memory (DRAM), of which some have been in use since the early 1970s,[4] and a higher-speed successor to the DDR2 and DDR3 technologies.',
     avatar: 'https://library.kissclipart.com/20180909/goe/kissclipart-avatar-icon-developer-clipart-computer-icons-progr-8837b27ee602fca5.png',
     userName: 'John',
@@ -70,7 +75,8 @@ const data = [
     title: 'HyperX2 Ram 16gb DDR4',
     price: '450$',
     
-    category: 'electronics',
+    cat: 'electronics',
+    telNumber: '+37411001100',
     desc: 'Released to the market in 2014,[1][2][3] it is a variant of dynamic random-access memory (DRAM), of which some have been in use since the early 1970s,[4] and a higher-speed successor to the DDR2 and DDR3 technologies.',
     avatar: 'https://library.kissclipart.com/20180909/goe/kissclipart-avatar-icon-developer-clipart-computer-icons-progr-8837b27ee602fca5.png',
     userName: 'John',
@@ -82,7 +88,8 @@ const data = [
     title: 'Apartment Ellison',
     price: '120000$',
     
-    category: 'realestate',
+    cat: 'realestate',
+    telNumber: '+37411001100',
     desc: 'Վաճառվում է 3 սենյականոց բնակարան Հիլլս պողոտայում: Բնակարանը կապիտալ վերանորոգված է:',
     avatar: 'https://library.kissclipart.com/20180909/goe/kissclipart-avatar-icon-developer-clipart-computer-icons-progr-8837b27ee602fca5.png',
     userName: 'RealEstateGroup',
@@ -94,7 +101,8 @@ const data = [
     title: 'Detached House Ellison',
     price: '300000$',
   
-    category: 'realestate',
+    cat: 'realestate',
+    telNumber: '+37411001100',
     desc: 'Վաճառվում է 8 սենյականոց առանձնատուն Հիլլս պողոտայում: Բնակարանը կապիտալ վերանորոգված է:',
     avatar: 'https://library.kissclipart.com/20180909/goe/kissclipart-avatar-icon-developer-clipart-computer-icons-progr-8837b27ee602fca5.png',
     userName: 'RealEstateGroup',
@@ -108,9 +116,9 @@ const App = () => {
   return(
       <div className="App">
         <Home />
-        {/* <Posts data={data}/> */}
+        
         <Posts data={data}/>
-
+        <Posts data={data}/>
       </div>
   );
 }
