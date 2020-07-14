@@ -1,11 +1,8 @@
 .Posts{
     width: 100%;
-    height: 100%;
-    /* height: 100vh; */
+    height: auto;
+    background-image: linear-gradient(to right, #434343 0%, black 100%);
     display: flex;
-    background-image: url(https://www.mu-sofia.bg/wp-content/uploads/layerslider/Vintage-Photos/vintage-desk-bg.jpg);
-    background-size: cover;
-    padding: 30px;
     justify-content: space-around;
     flex-wrap: wrap;
 }
