@@ -4,30 +4,12 @@ import Login from './Login/Login';
 import Register from './Register/Register';
 import './Home.css';
 
-
-
 const elemInOut = (elemIn, elemOut) => {
-    
-    console.log(elemIn, elemOut);
-
-    // document.getElementById(elemOut).style.height= '0';
-
-    // document.getElementById(elemOut).style.animation = `${elemOut}-out 1s forwards 1`;
     document.getElementById(elemOut).style.animation= '';
-
-
-
-    // console.log(`elemOut height ${document.getElementById(elemOut).style.height}`);
-    document.getElementById(elemIn).style.animation= `${elemIn}-in 1s forwards 1`;
-
-    // let elemIn = document.getElementById('elemIn');
-    // elemIn.style.animation = `${elemIn}-in 1s forwards 1`;
-    // let elemOut = document.getElementById('elemOut');
-    // elemOut.style.animation = `${elemOut}-out 1s forwards 1`;
+    // toBeUpdated later
     // document.getElementById('elemOut').style.animation = `${elemOut}-out 1s forwards 1`;
+    document.getElementById(elemIn).style.animation= `${elemIn}-in 1s forwards 1`;
 }
-
-
 
 const Home = () => {
     return (

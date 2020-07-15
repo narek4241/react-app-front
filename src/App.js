@@ -110,7 +110,7 @@ const data = [
   },
 ];
 
-
+let poghos = 'red';
 
 const App = () => {
   return(

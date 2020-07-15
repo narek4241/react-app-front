@@ -2,8 +2,6 @@
     width: 20%;
     height: 100%;
     height: 300px;
-    background-color: #dcd6f7;
-    
     margin: 1% 0%;
     border: 1px;
     border-radius: 2px;
@@ -12,6 +10,7 @@
     align-items: center;
     overflow: hidden;
     margin: 1% 0.5%;
+    background-color: var(--post-bg);
 }
     .Post:hover{
         box-shadow: 0 8px 17px 0 rgba(0,0,0,.15);
@@ -43,12 +42,12 @@
         }
     .title{
         height: 20%;
-        background-color: #ebece2;
+        /* background-color: #ebece2; */
 
     }
     .price{
         height: 15%;
-        background-color: #ebecec;
+        /* background-color: #ebecec; */
     }
     .price > p{
         width: 100%;

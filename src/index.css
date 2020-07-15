@@ -14,3 +14,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* ### add theme feature (+js, likely to use sass||less) */
+/* #1 colors palette src = https://colorhunt.co/palette/174976 */
+/* :root {
+  --posts-bg: #f4eeff;
+  --post-bg: #dcd6f7;
+  --home-bg: #a6b1e1;
+  --home-bar-bg: #424874;
+} */
+/* #2 colors palette src = https://colorhunt.co/palette/177052 */
+/* :root{
+  --posts-bg: #000000;
+  --post-bg: #323232;
+  --home-bg: #ffac41;
+  --home-bar-bg: #ff1e56;
+} */
+/* #3 colors palette src = https://colorhunt.co/palette/181018 */
+/* :root {
+  --posts-bg: #ffffff;
+  --post-bg: #f0f0f0;
+  --home-bg: #ffe8df;
+  --home-bar-bg: #888888;
+} */
+/* #4 colors palette src = https://colorhunt.co/palette/189745 +1ch */
+:root {
+  --posts-bg: #eeeeee;
+  --post-bg: #ffffff;
+  --home-bg: #393e46;
+  --home-bar-bg: #222831;
+}
+
+

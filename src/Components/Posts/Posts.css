@@ -1,10 +1,11 @@
 .Posts{
     width: 85%;
     height: auto;
-    background-color: #f4eeff;
+    background-color: var(--posts-bg);
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    border: 1px solid #e9e3f3;
+    /* border: 1px solid #e9e3f3; */
+    box-sizing: border-box;
     z-index: 1;
 }
