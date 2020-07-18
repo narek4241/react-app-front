@@ -39,7 +39,7 @@ code {
 } */
 /* #4 colors palette src = https://colorhunt.co/palette/189745 +1ch */
 :root {
-  --posts-bg: #eeeeee;
+  /* --posts-bg: #eeeeee; */
   --post-bg: #ffffff;
   --home-bg: #393e46;
   --home-bar-bg: #222831;

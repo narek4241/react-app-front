@@ -13,10 +13,10 @@
     /* margin: 0.5% 0.5%; */
     /* margin: 2px 2px; */
     background-color: var(--post-bg);
-    /* background-color: lightgreen; */
 }
     .Post:hover{
-        box-shadow: 0 8px 17px 0 rgba(0,0,0,.15);
+        /* box-shadow: 0 8px 17px 0 rgba(0,0,0,.15); */
+        box-shadow: 0 11px 17px 0 rgba(0,0,0,.15);
         z-index: 100;
         transition: .400s;
         cursor: pointer;
@@ -35,8 +35,10 @@
         justify-content: center;
         align-items: center;
         height: 65%;
+        object-fit: contain;
     }
         .img > img{
+            max-width: 75%;
             width: auto;
             height: 75%;
             opacity: 0.95;
@@ -49,7 +51,6 @@
     .title{
         height: 20%;
         /* background-color: #ebece2; */
-
     }
     .price{
         height: 15%;

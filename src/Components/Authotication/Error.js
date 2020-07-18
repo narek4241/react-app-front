@@ -1,13 +1,21 @@
 import React from 'react';
 
-const Error = ({touched, message}) => {
-    if(!touched) {
-        return <div>{null}</div>
+const Error = ({touch, error}) => {
+    if(!touch){
+        // return <div>(required)</div>
+        return "";
     }
-    if(message) {
-    return <div style={{color:'red', fontSize: '10px', margin: '0', padding: '0'}}>{message}</div>
+    if(error){
+        // return <p>{error}</p>
+        return <div style={{width:'100%', margin:'2.5px 0px', paddingLeft:'5px',backgroundColor: "#8a0303"}}>{error}</div>
     }
-    return <div>{null}</div>
-}
+    return (<div>{null}</div>);
+}  
 
-export default Error
+export default Error;
+
+
+
+
+
+

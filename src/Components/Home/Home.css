@@ -100,7 +100,10 @@
                     width: 100%;
                     cursor: pointer;
                 }
-        
+    .auth{
+        width: 100%;
+        height: auto;
+    }    
 
 
 
@@ -109,26 +112,11 @@
 
 
 
-    /* .homepage-content{
-        width: 65%;
-        height: 75%;
-        background-color: #fff;
-        box-sizing: border-box;
-        border-radius: 5px 0px 5px 0px;
-        display: flex;
-        flex-direction: row;
-    }
-        .sign-in, .sign-up{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .sign-in{
-            width: 35%;
-            background-color: #8a0303;
-        }
-        .sign-up{
-            width: 65%;
-            background-color: #ebecec;
-        } */
+    
+
+
+
+
+
+
     

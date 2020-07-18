@@ -1,14 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import Login from './Login/Login';
-// import Register from './Register/Register';
 import Login from '../Authotication/Login/Login';
 import Register from '../Authotication/Register/Register';
-
 import './Home.css';
 
 export const elemInOut = (elemIn, elemOut) => {
     document.getElementById(elemOut).style.animation= '';
+    // try 'useState' here
     // toBeUpdated later
     // document.getElementById('elemOut').style.animation = `${elemOut}-out 1s forwards 1`;
     document.getElementById(elemIn).style.animation= `${elemIn}-in 1s forwards 1`;
@@ -18,8 +16,10 @@ const Home = () => {
     return (
         <div className='Home'>
             
-            <Login />
-            <Register />
+            <div className='auth'>
+                <Login />
+                <Register />
+            </div>
 
             <div className='homebar'>
                 <div className='homebar-lf-side'>

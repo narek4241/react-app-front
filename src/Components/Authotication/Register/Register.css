@@ -11,6 +11,10 @@
     text-transform: uppercase;
     position: relative;
     overflow: hidden;
+    z-index: 2;
+    /* position: absolute; */
+    /* top: 0; */
+    /* overflow-y: auto;  */
 }
     .register-intro, .register-data{
         box-sizing: border-box;
@@ -26,13 +30,23 @@
         justify-content: center;
         align-items: center;
     }
-        .register-form-firstname-lastname, .register-form-email-confirmemail, .register-form-pass-confirmpass, .register-hr, .register-links{
+        .register-form-firstname-lastname, .register-form-email-confirmemail, .register-form-pass-confirmpass, .register-hr, .register-links, .register-errors{
             width: 45%;
             height: 16%;
             display: flex;
             justify-content: space-evenly;
             align-items: center;
         }
+            .register-errors{
+                /* background-color: #fff; */
+                display: flex;
+                flex-direction: column;
+                /* width: 45; */
+                width: 42.5%;
+                height: 15%;
+                text-transform: none;
+                overflow-y: auto;
+            }
             .register-data input{
                 width: 46%;
                 height: 75%;
@@ -51,7 +65,7 @@
                 align-items: center;
                 left: 69.15%;
                 top: 60%;
-                top: 49.5%;
+                top: 57%;
             }
                 .register-form-submit input[type=submit]{
                     width: 100%;
@@ -89,6 +103,7 @@
             height: 10%;
             position: absolute;
             top: 67%;
+            top: 73%;
             left: 30.65%;
             display: flex;
             flex-direction: row;
@@ -116,6 +131,7 @@
             font-size: 14px;
             position: absolute;
             top: 77%;
+            top: 83%;
             left: 28.35%;
         }
             .opensignin > a{
