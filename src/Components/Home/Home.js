@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Login from './Login/Login';
-import Register from './Register/Register';
+// import Login from './Login/Login';
+// import Register from './Register/Register';
+import Login from '../Authotication/Login/Login';
+import Register from '../Authotication/Register/Register';
+
 import './Home.css';
 
-const elemInOut = (elemIn, elemOut) => {
+export const elemInOut = (elemIn, elemOut) => {
     document.getElementById(elemOut).style.animation= '';
     // toBeUpdated later
     // document.getElementById('elemOut').style.animation = `${elemOut}-out 1s forwards 1`;
@@ -18,17 +21,28 @@ const Home = () => {
             <Login />
             <Register />
 
-            <div className='home-bar'>
-                <div className='logo'>
-                    <p>Ｓｋｅｌｅｔ</p>
+            <div className='homebar'>
+                <div className='homebar-lf-side'>
+                    <div className='sidenav'>
+                        <a>☰</a>
+                    </div>
+                    <div className='logo'>
+                        <p>Ｓｋｅｌｅｔ</p>
+                    </div>
                 </div>
 
-                <div className='registration'>
-                    <div className='sign-up'>
-                        <button id='signUp' onClick={() => elemInOut('register', 'login')}>SIGN UP</button>
+                <div className='homebar-rg-side'>
+                    <div className="addAnnouncement">
+                        <button>Add Announcement</button>
                     </div>
-                    <div className='log-in'>
-                        <button id='logIn' onClick={() => elemInOut('login', 'register')}>LOG IN</button>
+                    <div className='registration'>
+                        <div className='sign-up'>
+                            <a id='signUp' onClick={() => elemInOut('register', 'login')}>SIGN UP</a>
+                        </div>
+                        <div>|</div>
+                        <div className='sign-in'>
+                            <a id='signIn' onClick={() => elemInOut('login', 'register')}>SIGN IN</a>
+                        </div>
                     </div>
                 </div>
             </div>

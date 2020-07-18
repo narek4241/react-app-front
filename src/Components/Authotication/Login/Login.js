@@ -1,5 +1,7 @@
 import React from 'react';
 import './Login.css';
+import {elemInOut} from '../../Home/Home';
+
 
 let loginexit = () =>{
     document.getElementById('login').style.animation = `login-out 1s forwards 1`;
@@ -18,10 +20,10 @@ const Login = () => {
             <div className="login-data">
                 <div className="login-fb">
                     <div className='fb-icon'>
-                        <img src={require('../../../images/login-with-facebook.png')} alt='Fb'></img>
+                        <img style={{cursor:"not-allowed"}} src={require('../../../images/login-with-facebook.png')} alt='Fb'></img>
                     </div>
                     <div className="fb-text">
-                        <a href="#">Login with Facebook</a>
+                        <a href="#" style={{cursor:"not-allowed"}}>Login with Facebook</a>
                     </div>
                 </div>
                  <div className="login-hr-or">
@@ -44,10 +46,10 @@ const Login = () => {
                 <div className="login-links">
                     <div className='opensignup'>
                         Don't have a profile?
-                        <a href='#'> Register Here</a>
+                        <a id='register-from-login' onClick={() => elemInOut('register', 'login')} href='#'> Register Here</a>
                     </div>
                     <div className='openresetpass'>
-                        <a>Forgot Password?</a>
+                        <a style={{cursor:"not-allowed"}}>Forgot Password?</a>
                     </div>
                 </div>
             </div>

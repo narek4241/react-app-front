@@ -108,6 +108,32 @@ const data = [
     userName: 'RealEstateGroup',
     date: '10.03.2020'
   },
+  {
+    id: '1',
+    img: 'https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/gallery_slide/public/mb_5292_0.jpg?itok=kzmq2FTY',
+    price: '30000$',
+    title: 'Mercedes-Benz E-class 2015',
+    
+    cat: 'transport',
+    telNumber: '+37411001100',
+    desc: 'The Mercedes-Benz E-Class 2015 is a range of executive cars manufactured by German automaker Mercedes-Benz in various engine and body configurations. Produced since 1953, the E-Class falls midrange in the Mercedes line-up, and has been marketed worldwide across five generations.',
+    avatar: 'https://png.pngtree.com/png-clipart/20190924/original/pngtree-user-vector-avatar-png-image_4830521.jpg',
+    userName: 'David',
+    date: '02.02.2020'
+  },
+  {
+    id: '10',
+    img: 'https://images-na.ssl-images-amazon.com/images/I/61eetqWp39L._AC_SX466_.jpg',
+    title: 'HyperX2 Ram 16gb DDR4',
+    price: '450$',
+    
+    cat: 'electronics',
+    telNumber: '+37411001100',
+    desc: 'Released to the market in 2014,[1][2][3] it is a variant of dynamic random-access memory (DRAM), of which some have been in use since the early 1970s,[4] and a higher-speed successor to the DDR2 and DDR3 technologies.',
+    avatar: 'https://library.kissclipart.com/20180909/goe/kissclipart-avatar-icon-developer-clipart-computer-icons-progr-8837b27ee602fca5.png',
+    userName: 'John',
+    date: '18.07.2020'
+  },
 ];
 
 let poghos = 'red';
@@ -117,6 +143,8 @@ const App = () => {
       <div className="App">
         <Home />
         
+        <Posts data={data}/>
+        <Posts data={data}/>
         <Posts data={data}/>
         <Posts data={data}/>
       </div>

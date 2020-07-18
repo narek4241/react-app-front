@@ -1,9 +1,12 @@
 .Posts{
-    width: 85%;
+    /* width: auto; */
+    /* width: 100%; */
+    width: 80%;
     height: auto;
     background-color: var(--posts-bg);
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-evenly; */
+    justify-content: center;
     flex-wrap: wrap;
     /* border: 1px solid #e9e3f3; */
     box-sizing: border-box;

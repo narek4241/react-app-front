@@ -1,5 +1,7 @@
 import React from 'react';
 import './Register.css';
+import {elemInOut} from '../../Home/Home';
+
 
 let registerexit = () =>{
     document.getElementById('register').style.animation = `register-out 1s forwards 1`;
@@ -29,9 +31,18 @@ const Register = () => {
                     <input type='submit' id='submit' name='submit' value=''/>
                     <div className='register-submit-triangle-dot'></div>
                 </div>
-                <div className='login-form-terms'>
-                    <input type='checkbox' id='checkbox' name='checkbox'/>
-                    <p>I agree to the<a href='#'>&nbsp;terms and conditions</a></p>
+                <div className="register-hr">
+                    <hr></hr>
+                </div>
+                <div className='register-links'>
+                    <div className='login-form-terms'>
+                        <input type='checkbox' id='checkbox' name='checkbox'/>
+                        <p>I agree to the<a href='#'>&nbsp;terms and conditions</a></p>
+                    </div>
+                    <div className='opensignin'>
+                        Already have an account?
+                        <a id='login-from-register' onClick={() => elemInOut('login', 'register')} href='#'> Login Here</a>
+                    </div>
                 </div>
             </div>
             
