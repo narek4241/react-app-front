@@ -19,10 +19,16 @@ const Posts = ({data}) => {
         );
     })
 
+    // const cars = data.filter(obj => obj.cat == 'transport');
+
     return(
         <div className="Posts">
             {/* <Filter /> */}
             {posts}
+
+            {/* {posts2} */}
+            {/* {posts3} */}
+            {/* {posts4} */}
         </div>
     );
 }

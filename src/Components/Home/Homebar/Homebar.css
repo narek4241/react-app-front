@@ -1,0 +1,84 @@
+.homebar{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+    background-color: var(--home-bar-bg);
+    background: rgba(0, 0, 0, 0.9);
+}
+    .homebar-lf-side, .homebar-rg-side{
+        width: 50%;
+        height: 100%;
+        display: flex;
+    }
+    .homebar-lf-side{
+        justify-content: space-between;
+    }
+        .sidenav{
+            width: 10%;
+            height: 100%;
+        }
+            .sidenav > a{
+                width: 100%;
+                height: 100%;
+                font-size: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+            }
+        .logo{
+            width: 80%;
+            height: 100%;
+            color: #ebecec;
+            color: #8a0303;
+            color: #fff;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            justify-content: flex-start;
+            align-items: center;
+        }
+            .logo > p{
+                margin: 0;
+                font-size: 30px;
+            }
+    .homebar-rg-side{
+        /* smth */
+        justify-content: flex-end;
+        /* align-items: center; */
+    }
+        .addAnnouncement{
+            width: 40%;
+            /* background-color: darkgrey; */
+            align-items: center;
+        }
+            .addAnnouncement > button{
+                width: 100%;
+                height: 50%;
+                outline: 0;
+                background-color: black;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 15px;
+                margin-top: 2%;
+                border: 0;
+                cursor: pointer;
+                text-transform: uppercase;
+            }
+        .registration{
+            width: 20%;
+            height: 50%;
+            color: white;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;   
+        }
+            .sign-in a, .sign-up a{
+                width: 100%;
+                cursor: pointer;
+            }

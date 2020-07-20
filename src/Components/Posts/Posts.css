@@ -1,7 +1,6 @@
 .Posts{
-    /* width: auto; */
-    /* width: 100%; */
     width: 80%;
+    /* width: 100%; */
     height: auto;
     background-color: var(--posts-bg);
     display: flex;
