@@ -1,0 +1,209 @@
+.SinglePage{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    .single-page{
+        width: 70%;
+        height: auto;
+        display: flex;
+    }
+        .single-page-left-side, .single-page-right-side{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-top: 2.5%;
+        }
+        .single-page-left-side{
+            width: 60%;
+            display: flex;
+            align-items: center;
+        }
+            .post-content{
+                width: 100%;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+                .post-title, .post-info{
+                    width: 75%;
+                    padding: 15px 0px;
+                }
+                .post-title{
+                    font-size: 25px;
+                    border-top: 1px dashed grey;
+                }
+                .post-info{
+                    display: flex;
+                    border-top: 1px dashed grey;
+                }
+                    .post-price, .post-date{
+                        height: 100%;
+                    }
+                    .post-price{
+                        width: 60%;
+                        display: flex;
+                        font-weight: 500;
+                        font-size: 25px;
+                        text-decoration: underline;
+                    }
+                    .post-date{
+                        width: 40%;
+                    }
+            .post-images{
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+                .post-image-main{
+                    width: 75%;
+                }
+                .post-image-main > img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+                .post-image-other{
+                    width: 75%;
+                    display: flex;
+                    justify-content: space-evenly;
+                    justify-content: space-between;
+                }
+                    .post-image-other > img{
+                        width: 22.5%;
+                        height: 100%;
+                        object-fit: contain;
+                        padding: 10px 0px;
+                    }
+            .post-desc{
+                width: 75%;
+                font-size: 17px;
+                margin: 3% 0%;
+                padding: 10px 0px;
+                border-top: 1px dashed grey;
+            }
+        .single-page-right-side{
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+        }
+            .post-owner{
+                width: 65%;
+                height: 300px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border: 1px dashed grey;
+                border-radius: 20px;
+                transition: 1s;
+            }
+                .post-owner:hover{
+                    border-radius: 30px;
+                }
+                .owner-info, .owner-contact{
+                    width: 100%;
+                    display: flex;
+                }
+                .owner-info{
+                    width: 50%;
+                    height: 65%;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    transition: 1s;
+                    opacity: 0.85;
+                }
+                    .owner-info:hover{
+                        opacity: 1;
+                    }
+                    .owner-avatar{
+                        width: 100%;
+                        height: 55%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        overflow: hidden;
+                        cursor: pointer;
+
+                    }
+                        .owner-avatar > img{
+                            width: 100px;
+                            border-radius: 120px;
+                        }
+                    .owner-userName{
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 25%;
+                    }
+                .owner-contact{
+                    width: 100%;
+                    height: 15%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                    .owner-call{
+                        width: 200px;
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 20px;
+                        color: #fff;
+                        object-fit: contain;
+                        flex-wrap: nowrap;
+                        white-space: nowrap;
+                        background-color: blue;
+                        cursor: pointer;
+
+                    }
+                        .owner-call > .owner-contactNumber{
+                            color: #fff;
+                        }
+                .owner-userName{
+                    width: 100%;
+                }
+            .similar-posts{
+                width: 75%;
+                margin-top: 5%;
+            }
+                .similar-posts-heading{
+                    width: 100%;
+                    height: 60px;
+                    display: flex;
+                    align-items: center;
+                }
+                .similar-posts-content{
+                    width: 100%;
+                    height: auto;
+                    /* #temporary */
+                    overflow-y: auto;
+                    max-height: 1500px;
+                }
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

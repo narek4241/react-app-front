@@ -3,6 +3,7 @@ import Home from './Components/Home/Home';
 import Posts from './Components/Posts/Posts';
 import Footer from './Components/Footer/Footer';
 import Profile from './Components/Profile/Profile';
+import SinglePage from './Components/Posts/SinglePage/SinglePage';
 // import { Route } from 'react-router';
 // import { Route, Switch } from 'react-router';
 // import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -18,11 +19,11 @@ export const data = [
     id: '1',
     img: 'https://officialpsds.com/imageview/rq/83/rq8325_large.png?1521316532',
     price: '25000$',
-    title: 'Mercedes-Benz S-class 2012',
+    title: 'Mercedes-Benz S-class 2012 ',
 
     cat: 'transport',
-    telNumber: '+37411001100',
-    desc: 'The Mercedes-Benz E-Class 2015 is a range of executive cars manufactured by German automaker Mercedes-Benz in various engine and body configurations. Produced since 1953, the E-Class falls midrange in the Mercedes line-up, and has been marketed worldwide across five generations.',
+    contactNumber: '+37411001100',
+    desc: 'The Mercedes-Benz E-Class 2015 is a range of executive cars manufactured by German automaker Mercedes-Benz in various engine and body configurations. Produced since 1953, the E-Class falls midrange in the Mercedes line-up, and has been marketed worldwide across five generations.The Mercedes-Benz E-Class 2015 is a range of executive cars manufactured by German automaker Mercedes-Benz in various engine and body configurations. Produced since 1953, the E-Class falls midrange in the Mercedes line-up, and has been marketed worldwide across five generations.The Mercedes-Benz E-Class 2015 is a range of executive cars manufactured by German automaker Mercedes-Benz in various engine and body configurations. Produced since 1953, the E-Class falls midrange in the Mercedes line-up, and has been marketed worldwide across five generations.The Mercedes-Benz E-Class 2015 is a range of executive cars manufactured by German automaker Mercedes-Benz in various engine and body configurations. Produced since 1953, the E-Class falls midrange in the Mercedes line-up, and has been marketed worldwide across five generations.',
     avatar: 'https://png.pngtree.com/png-clipart/20190924/original/pngtree-user-vector-avatar-png-image_4830521.jpg',
     userName: 'David',
     date: '02.02.2020',
@@ -35,6 +36,7 @@ export const data = [
     title: 'Mercedes-Benz E-class 2010',
 
     cat: 'transport',
+    contactNumber: '+37411001100',
     desc: 'The Mercedes-Benz E-Class 2010 is a range of executive cars manufactured by German automaker Mercedes-Benz in various engine and body configurations. Produced since 1953, the E-Class falls midrange in the Mercedes line-up, and has been marketed worldwide across five generations.',
     avatar: 'https://png.pngtree.com/png-clipart/20190924/original/pngtree-user-vector-avatar-png-image_4830521.jpg',
     userName: 'David',
@@ -48,7 +50,7 @@ export const data = [
     price: '40000$',
 
     cat: 'transport',
-    telNumber: '+37411001100',
+    contactNumber: '+37411001100',
     desc: 'The Mercedes-Benz E-Class is a range of executive cars manufactured by German automaker Mercedes-Benz in various engine and body configurations. Produced since 1953, the E-Class falls midrange in the Mercedes line-up, and has been marketed worldwide across five generations.',
     avatar: 'https://png.pngtree.com/png-clipart/20190924/original/pngtree-user-vector-avatar-png-image_4830521.jpg',
     userName: 'Arman',
@@ -62,7 +64,7 @@ export const data = [
     price: '2000$',
 
     cat: 'electronics',
-    telNumber: '+37411001100',
+    contactNumber: '+37411001100',
     desc: 'The Mac Pro is a series of workstations and servers for professionals designed, manufactured and sold by Apple Inc. since 2006. The Mac Pro, in most configurations and in terms of speed and performance, is the most powerful computer that Apple offers. It is one of four desktop computers in the current Macintosh lineup, sitting above the consumer range Mac Mini and iMac, and alongside the all-in-one iMac Pro.',
     avatar: 'https://library.kissclipart.com/20180909/goe/kissclipart-avatar-icon-developer-clipart-computer-icons-progr-8837b27ee602fca5.png',
     userName: 'John',
@@ -76,7 +78,7 @@ export const data = [
     price: '500$',
 
     cat: 'electronics',
-    telNumber: '+37411001100',
+    contactNumber: '+37411001100',
     desc: 'Released to the market in 2014,[1][2][3] it is a variant of dynamic random-access memory (DRAM), of which some have been in use since the early 1970s,[4] and a higher-speed successor to the DDR2 and DDR3 technologies.',
     avatar: 'https://library.kissclipart.com/20180909/goe/kissclipart-avatar-icon-developer-clipart-computer-icons-progr-8837b27ee602fca5.png',
     userName: 'John',
@@ -90,7 +92,7 @@ export const data = [
     price: '450$',
 
     cat: 'electronics',
-    telNumber: '+37411001100',
+    contactNumber: '+37411001100',
     desc: 'Released to the market in 2014,[1][2][3] it is a variant of dynamic random-access memory (DRAM), of which some have been in use since the early 1970s,[4] and a higher-speed successor to the DDR2 and DDR3 technologies.',
     avatar: 'https://library.kissclipart.com/20180909/goe/kissclipart-avatar-icon-developer-clipart-computer-icons-progr-8837b27ee602fca5.png',
     userName: 'John',
@@ -104,7 +106,7 @@ export const data = [
     price: '120000$',
 
     cat: 'realestate',
-    telNumber: '+37411001100',
+    contactNumber: '+37411001100',
     desc: 'Վաճառվում է 3 սենյականոց բնակարան Հիլլս պողոտայում: Բնակարանը կապիտալ վերանորոգված է:',
     avatar: 'https://library.kissclipart.com/20180909/goe/kissclipart-avatar-icon-developer-clipart-computer-icons-progr-8837b27ee602fca5.png',
     userName: 'RealEstateGroup',
@@ -118,7 +120,7 @@ export const data = [
     price: '300000$',
 
     cat: 'realestate',
-    telNumber: '+37411001100',
+    contactNumber: '+37411001100',
     desc: 'Վաճառվում է 8 սենյականոց առանձնատուն Հիլլս պողոտայում: Բնակարանը կապիտալ վերանորոգված է:',
     avatar: 'https://library.kissclipart.com/20180909/goe/kissclipart-avatar-icon-developer-clipart-computer-icons-progr-8837b27ee602fca5.png',
     userName: 'RealEstateGroup',
@@ -132,7 +134,7 @@ export const data = [
     price: '350$',
 
     cat: 'electronics',
-    telNumber: '+37411001100',
+    contactNumber: '+37411001100',
     desc: 'Released to the market in 2014,[1][2][3] it is a variant of dynamic random-access memory (DRAM), of which some have been in use since the early 1970s,[4] and a higher-speed successor to the DDR2 and DDR3 technologies.',
     avatar: 'https://library.kissclipart.com/20180909/goe/kissclipart-avatar-icon-developer-clipart-computer-icons-progr-8837b27ee602fca5.png',
     userName: 'John',
@@ -146,7 +148,7 @@ export const data = [
     price: '1500$',
 
     cat: 'electronics',
-    telNumber: '+37411001100',
+    contactNumber: '+37411001100',
     desc: 'The Mac Pro is a series of workstations and servers for professionals designed, manufactured and sold by Apple Inc. since 2006. The Mac Pro, in most configurations and in terms of speed and performance, is the most powerful computer that Apple offers. It is one of four desktop computers in the current Macintosh lineup, sitting above the consumer range Mac Mini and iMac, and alongside the all-in-one iMac Pro.',
     avatar: 'https://library.kissclipart.com/20180909/goe/kissclipart-avatar-icon-developer-clipart-computer-icons-progr-8837b27ee602fca5.png',
     userName: 'John',
@@ -160,7 +162,7 @@ export const data = [
     title: 'Mercedes-Benz S-class 2012',
 
     cat: 'transport',
-    telNumber: '+37411001100',
+    contactNumber: '+37411001100',
     desc: 'The Mercedes-Benz E-Class 2015 is a range of executive cars manufactured by German automaker Mercedes-Benz in various engine and body configurations. Produced since 1953, the E-Class falls midrange in the Mercedes line-up, and has been marketed worldwide across five generations.',
     avatar: 'https://png.pngtree.com/png-clipart/20190924/original/pngtree-user-vector-avatar-png-image_4830521.jpg',
     userName: 'David',
@@ -174,6 +176,7 @@ export const data = [
     title: 'Mercedes-Benz E-class 2010',
 
     cat: 'transport',
+    contactNumber: '+37411001100',
     desc: 'The Mercedes-Benz E-Class 2010 is a range of executive cars manufactured by German automaker Mercedes-Benz in various engine and body configurations. Produced since 1953, the E-Class falls midrange in the Mercedes line-up, and has been marketed worldwide across five generations.',
     avatar: 'https://png.pngtree.com/png-clipart/20190924/original/pngtree-user-vector-avatar-png-image_4830521.jpg',
     userName: 'David',
@@ -187,7 +190,7 @@ export const data = [
     price: '40000$',
 
     cat: 'transport',
-    telNumber: '+37411001100',
+    contactNumber: '+37411001100',
     desc: 'The Mercedes-Benz E-Class is a range of executive cars manufactured by German automaker Mercedes-Benz in various engine and body configurations. Produced since 1953, the E-Class falls midrange in the Mercedes line-up, and has been marketed worldwide across five generations.',
     avatar: 'https://png.pngtree.com/png-clipart/20190924/original/pngtree-user-vector-avatar-png-image_4830521.jpg',
     userName: 'Arman',
@@ -201,7 +204,7 @@ export const data = [
     price: '2000$',
 
     cat: 'electronics',
-    telNumber: '+37411001100',
+    contactNumber: '+37411001100',
     desc: 'The Mac Pro is a series of workstations and servers for professionals designed, manufactured and sold by Apple Inc. since 2006. The Mac Pro, in most configurations and in terms of speed and performance, is the most powerful computer that Apple offers. It is one of four desktop computers in the current Macintosh lineup, sitting above the consumer range Mac Mini and iMac, and alongside the all-in-one iMac Pro.',
     avatar: 'https://library.kissclipart.com/20180909/goe/kissclipart-avatar-icon-developer-clipart-computer-icons-progr-8837b27ee602fca5.png',
     userName: 'John',
@@ -215,7 +218,7 @@ export const data = [
     price: '500$',
 
     cat: 'electronics',
-    telNumber: '+37411001100',
+    contactNumber: '+37411001100',
     desc: 'Released to the market in 2014,[1][2][3] it is a variant of dynamic random-access memory (DRAM), of which some have been in use since the early 1970s,[4] and a higher-speed successor to the DDR2 and DDR3 technologies.',
     avatar: 'https://library.kissclipart.com/20180909/goe/kissclipart-avatar-icon-developer-clipart-computer-icons-progr-8837b27ee602fca5.png',
     userName: 'John',
@@ -229,7 +232,7 @@ export const data = [
     price: '450$',
 
     cat: 'electronics',
-    telNumber: '+37411001100',
+    contactNumber: '+37411001100',
     desc: 'Released to the market in 2014,[1][2][3] it is a variant of dynamic random-access memory (DRAM), of which some have been in use since the early 1970s,[4] and a higher-speed successor to the DDR2 and DDR3 technologies.',
     avatar: 'https://library.kissclipart.com/20180909/goe/kissclipart-avatar-icon-developer-clipart-computer-icons-progr-8837b27ee602fca5.png',
     userName: 'John',
@@ -243,7 +246,7 @@ export const data = [
     price: '120000$',
 
     cat: 'realestate',
-    telNumber: '+37411001100',
+    contactNumber: '+37411001100',
     desc: 'Վաճառվում է 3 սենյականոց բնակարան Հիլլս պողոտայում: Բնակարանը կապիտալ վերանորոգված է:',
     avatar: 'https://library.kissclipart.com/20180909/goe/kissclipart-avatar-icon-developer-clipart-computer-icons-progr-8837b27ee602fca5.png',
     userName: 'RealEstateGroup',
@@ -257,7 +260,7 @@ export const data = [
     price: '300000$',
 
     cat: 'realestate',
-    telNumber: '+37411001100',
+    contactNumber: '+37411001100',
     desc: 'Վաճառվում է 8 սենյականոց առանձնատուն Հիլլս պողոտայում: Բնակարանը կապիտալ վերանորոգված է:',
     avatar: 'https://library.kissclipart.com/20180909/goe/kissclipart-avatar-icon-developer-clipart-computer-icons-progr-8837b27ee602fca5.png',
     userName: 'RealEstateGroup',
@@ -271,7 +274,7 @@ export const data = [
     price: '350$',
 
     cat: 'electronics',
-    telNumber: '+37411001100',
+    contactNumber: '+37411001100',
     desc: 'Released to the market in 2014,[1][2][3] it is a variant of dynamic random-access memory (DRAM), of which some have been in use since the early 1970s,[4] and a higher-speed successor to the DDR2 and DDR3 technologies.',
     avatar: 'https://library.kissclipart.com/20180909/goe/kissclipart-avatar-icon-developer-clipart-computer-icons-progr-8837b27ee602fca5.png',
     userName: 'John',
@@ -285,7 +288,7 @@ export const data = [
     price: '1500$',
 
     cat: 'electronics',
-    telNumber: '+37411001100',
+    contactNumber: '+37411001100',
     desc: 'The Mac Pro is a series of workstations and servers for professionals designed, manufactured and sold by Apple Inc. since 2006. The Mac Pro, in most configurations and in terms of speed and performance, is the most powerful computer that Apple offers. It is one of four desktop computers in the current Macintosh lineup, sitting above the consumer range Mac Mini and iMac, and alongside the all-in-one iMac Pro.',
     avatar: 'https://library.kissclipart.com/20180909/goe/kissclipart-avatar-icon-developer-clipart-computer-icons-progr-8837b27ee602fca5.png',
     userName: 'John',
@@ -303,6 +306,7 @@ const App = () => {
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/profile' render={Profile} />
+          <Route path='/posts/post/:id' render={SinglePage} />
         </Switch>
       </BrowserRouter>
     </div>
