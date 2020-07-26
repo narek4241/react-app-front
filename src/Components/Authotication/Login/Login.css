@@ -20,16 +20,17 @@
         width: 45%;
         flex-direction: column;
         align-items: center;
+        color: var(--sec-col2);
     }
-        .login-title, p{
-            width: 50%;
-        }
-        .login-title{
+        .login-intro > h2{
             font-size: 30px;
+            width: 60%;
         }
-        p{
-            font-size: 18px;
+        .login-intro > p{
+            width: 60%;
+            text-align: left;
         }
+        
     .login-data{
         width: 45%;
         flex-direction: column;
@@ -67,9 +68,10 @@
                 .fb-icon > img{
                     width: 50px;
                     padding: 10px;
-                    border: 1px solid #000;
+                    border: 1px solid #505050;
                     box-sizing: border-box;
                     background-color: #fff;
+                    background-color: transparent;
                     border-radius: 40px;
                     margin: 0;
                     margin-right: 10px;
@@ -87,6 +89,7 @@
                     text-decoration: none;
                     white-space: nowrap;
                     color: #fff;
+                    color: var(--sec-col1);
                 }
         .login-hr-or, .login-hr {
             height: 5%;
@@ -124,6 +127,7 @@
                 outline: none;
                 display: flex;
                 padding: 0px 15px;
+                background-color: var(--input-bg);
             }
             .login-form-submit{
                 width: 5%;
@@ -141,14 +145,14 @@
                 position: absolute;
                 top: 12.5%;
                 display: flex;
-                background:var(--home-bar-bg) url(../../../images/login-submit.png) no-repeat center ;
+                background:var(--sec-col1) url(../../../images/login-submit.png) no-repeat center ;
                 background-size: 40%;
                 cursor: pointer;
             }
                 .login-submit-triangle-dot{
                     border-top: 8px solid transparent;
                     border-bottom: 8px solid transparent;
-                    border-right: 15px solid var(--home-bar-bg);
+                    border-right: 15px solid var(--sec-col1);
                     position: absolute;
                     top: 45%;
                     left: -10%;
@@ -161,13 +165,16 @@
             justify-content: space-evenly;
             text-transform: uppercase;
             font-size: 14px;
+            color: var(--sec-col2);
         }
             .login-links a{
                 text-decoration: none;
                 white-space: nowrap;
+                color: var(--sec-col2);
             }
             .opensignup > a{
                 color: #fff;
+                color: var(--sec-col1);
             }
 
     .login-exit{

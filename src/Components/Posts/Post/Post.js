@@ -1,18 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Post.css';
 
-const Post = ({img, price, title}) => {
-    return(
+// class Post extends Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {  }
+//     }
+//     render() { 
+//         return (  );
+//     }
+// }
+ 
+// export default Post;
+
+const Post = ({ imgUrl, price,currency, title, key }) => {
+    return (
         <div className="Post">
-            <div className="img">
-                <img className="post_img" alt="img" src={img}/>
-            </div>
-            <div className="title">
-                <p>{title}</p>
-            </div>
-            <div className="price">
-                <p>{price}</p>
-            </div>
+            <a href={`posts/post/${key}`}>
+                <div className="img">
+                    <img className="post_img" alt="img" src={imgUrl} />
+                </div>
+                <div className="title">
+                    <p>{title}</p>
+                </div>
+                <div className="price">
+                    <p style={{textTransform:"uppercase"}}>{price} {currency}</p>
+                </div>
+            </a>
+
         </div>
     );
 }

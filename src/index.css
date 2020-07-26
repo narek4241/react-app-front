@@ -45,5 +45,45 @@ code {
   --home-bg: #393e46;
   --home-bar-bg: #222831;
 }
+/* :root {
+#222222
+#333333
+#727470 opt
+
+#d38a8a
+} */
+
+:root {
+  --posts-bg: #fff;
+  --post-bg: #ffffff;
+  --home-bg: #222;
+  --input-bg: #333;
+  --sec-col1: #d38a8a;
+  --sec-col2: #fff;
+  --sec-col3: #000;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

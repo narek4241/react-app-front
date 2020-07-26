@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { elemInOut } from '../../Home/Home';
@@ -44,122 +44,131 @@ const validation = Yup.object().shape(
     }
 );
 
-const Register = () => {
-    return (
-        <div id='register' className='Register'>
-            {/* <div className="register-intro">
+class Register extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {}
+    }
+    render() {
+        return (
+            <div id='register' className='Register'>
+                {/* <div className="register-intro">
                 <p>Register Here</p>
             </div> */}
-            <Formik
-                initialValues={{
-                    firstname: '', lastname: '', email: '', phone: '', password: '',
-                    passwordConf: '', checkboxTerms: 'false'
-                }}
-                validationSchema={validation}
-                onSubmit={(values, { setSubmitting, resetForm }) => {
-                    setSubmitting(true);
-                    setTimeout(() => {
-                        alert(JSON.stringify(values));
-                        resetForm();
-                        setSubmitting(false);
-                    }, 500);
-                }}
-            >
-                {(
-                    {
-                        values,
-                        touched,
-                        errors,
-                        handleChange,
-                        handleBlur,
-                        handleSubmit
-                    }
-                ) => {
-                    return (
-                        <form className='register-data'
-                            onSubmit={handleSubmit}
-                        >
-                            <div className='register-errors'>
-                                <Error touch={touched.firstname} error={errors.firstname} />
-                                <Error touch={touched.lastname} error={errors.lastname} />
-                                <Error touch={touched.email} error={errors.email} />
-                                <Error touch={touched.phone} error={errors.phone} />
-                                <Error touch={touched.password} error={errors.password} />
-                                <Error touch={touched.passwordConf} error={errors.passwordConf} />
-                                <Error touch={touched.checkboxTerms} error={errors.checkboxTerms} />
-                            </div>
-                            <div className="register-form-firstname-lastname">
-                                <Input
-                                    idName={'firstname'} type={'text'} value={values.firstname}
-                                    classname={''} placeholder={'Firstname (required)'}
-                                    onChange={handleChange} onBlur={handleBlur}
-                                />
-                                <Input
-                                    idName={'lastname'} type={'text'} value={values.lastname}
-                                    classname={''} placeholder={'Lastname (optional)'}
-                                    onChange={handleChange} onBlur={handleBlur}
-                                />
-                            </div>
-                            <div className="register-form-email-confirmemail">
-                                <Input
-                                    idName={'email'} type={'email'} value={values.email}
-                                    classname={''} placeholder={'Email (required)'}
-                                    onChange={handleChange} onBlur={handleBlur}
-                                />
-                                <Input
-                                    idName={'phone'} type={'tel'} value={values.phone}
-                                    classname={''} placeholder={'Phone (optional)'}
-                                    onChange={handleChange} onBlur={handleBlur}
-                                />
-                            </div>
-                            <div className="register-form-pass-confirmpass">
-                                <Input
-                                    idName={'password'} type={'password'} value={values.password}
-                                    classname={''} placeholder={'Password (required)'}
-                                    onChange={handleChange} onBlur={handleBlur}
-                                />
-                                <Input
-                                    idName={'passwordConf'} type={'password'} value={values.passwordConf}
-                                    classname={''} placeholder={'Confirm password (optional)'}
-                                    onChange={handleChange} onBlur={handleBlur}
-                                />
-                            </div>
-                            <div className="register-form-submit">
-                                <Input
-                                    idName={'submit'} type={'submit'} value={''}
-                                    classname={''} placeholder={''}
-                                    onChange={''} onBlur={''}
-                                />
-                                <div className='register-submit-triangle-dot'></div>
-                            </div>
-                            <div className="register-hr">
-                                <hr></hr>
-                            </div>
-                            <div className='register-links'>
-                                <div className='login-form-terms'>
-                                    <Input
-                                        idName={'checkboxTerms'} type={'checkbox'} value={''}
-                                        classname={''} placeholder={''}
+                <Formik
+                    initialValues={{
+                        firstname: '', lastname: '', email: '', phone: '', password: '',
+                        passwordConf: '', checkboxTerms: 'false'
+                    }}
+                    validationSchema={validation}
+                    onSubmit={(values, { setSubmitting, resetForm }) => {
+                        setSubmitting(true);
+                        setTimeout(() => {
+                            alert(JSON.stringify(values));
+                            resetForm();
+                            setSubmitting(false);
+                        }, 500);
+                    }}
+                >
+                    {(
+                        {
+                            values,
+                            touched,
+                            errors,
+                            handleChange,
+                            handleBlur,
+                            handleSubmit
+                        }
+                    ) => {
+                        return (
+                            <form className='register-data'
+                                onSubmit={handleSubmit}
+                            >
+                                <div className='register-errors'>
+                                    <Error touch={touched.firstname} error={errors.firstname} />
+                                    <Error touch={touched.lastname} error={errors.lastname} />
+                                    <Error touch={touched.email} error={errors.email} />
+                                    <Error touch={touched.phone} error={errors.phone} />
+                                    <Error touch={touched.password} error={errors.password} />
+                                    <Error touch={touched.passwordConf} error={errors.passwordConf} />
+                                    <Error touch={touched.checkboxTerms} error={errors.checkboxTerms} />
+                                </div>
+                                <div className="register-form-firstname-lastname">
+                                    <input 
+                                        id={'firstname'} name={'firstname'} type={'text'} value={values.firstname}
+                                        className={''} placeholder={'Firstname (required)'}
                                         onChange={handleChange} onBlur={handleBlur}
-                                    />
-                                    <p>I agree to the<a href='#'>&nbsp;terms and conditions</a></p>
+                                    ></input>
+                                    <input 
+                                        id={'lastname'} name={'lastname'} type={'text'} value={values.lastname}
+                                        className={''} placeholder={'Lastname (optional)'}
+                                        onChange={handleChange} onBlur={handleBlur}
+                                    ></input>
                                 </div>
-                                <div className='opensignin'>
-                                    Already have an account?
+                                <div className="register-form-email-confirmemail">
+                                    <input 
+                                        id={'email'} name={'email'} type={'text'} value={values.email}
+                                        className={''} placeholder={'Email (required)'}
+                                        onChange={handleChange} onBlur={handleBlur}
+                                    ></input>
+                                    <input 
+                                        id={'phone'} name={'phone'} type={'tel'} value={values.phone}
+                                        className={''} placeholder={'Email (optional)'}
+                                        onChange={handleChange} onBlur={handleBlur}
+                                    ></input>
+                                </div>
+                                <div className="register-form-pass-confirmpass">
+                                    <input 
+                                        id={'password'} name={'password'} type={'password'} value={values.password}
+                                        className={''} placeholder={'Password (required)'}
+                                        onChange={handleChange} onBlur={handleBlur}
+                                    ></input>
+                                    <input 
+                                        id={'passwordConf'} name={'passwordConf'} type={'password'} value={values.passwordConf}
+                                        className={''} placeholder={'Confirm password (optional)'}
+                                        onChange={handleChange} onBlur={handleBlur}
+                                    ></input>
+                                </div>
+                                <div className="register-form-submit">
+                                    <input 
+                                        id={'submit'} name={'submit'} type={'submit'} value={''}
+                                        className={''} placeholder={''}
+                                        onChange={''} onBlur={''}
+                                    ></input>
+                                    <div className='register-submit-triangle-dot'></div>
+                                </div>
+                                <div className="register-hr">
+                                    <hr></hr>
+                                </div>
+                                <div className='register-links'>
+                                    <div className='login-form-terms'>
+                                        <input 
+                                            id={'checkboxTerms'} name={'checkboxTerms'} type={'checkbox'} value={''}
+                                            className={''} placeholder={'Confirm password (optional)'}
+                                            onChange={handleChange} onBlur={handleBlur}
+                                        ></input>
+                                        <p>I agree to the<a href=''>&nbsp;terms and conditions</a></p>
+                                    </div>
+                                    <div className='opensignin'>
+                                        Already have an account?
                             <a id='login-from-register' onClick={() => elemInOut('login', 'register')} href='#'> Login Here</a>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
-                    )
-                }}
+                            </form>
+                        )
+                    }}
 
-            </Formik>
+                </Formik>
 
-            <div id='registerexit' onClick={registerexit} className="register-exit">
-                <img src={require('../../../images/exit.png')}></img>
+                <div id='registerexit' onClick={registerexit} className="register-exit">
+                    <img src={require('../../../images/exit.png')}></img>
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
 
 export default Register;
+
+
+

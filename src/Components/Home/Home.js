@@ -1,13 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from 'react';
 import Login from '../Authotication/Login/Login';
 import Register from '../Authotication/Register/Register';
-import './Home.css';
 import Homebar from './Homebar/Homebar';
 import Categories from './Categories/Categories';
 import { data } from '../../App';
 import Posts from '../Posts/Posts';
 import Footer from '../Footer/Footer';
+import './Home.css';
 
 
 export const elemInOut = (elemIn, elemOut) => {
@@ -18,14 +17,18 @@ export const elemInOut = (elemIn, elemOut) => {
     document.getElementById(elemIn).style.animation = `${elemIn}-in 1s forwards 1`;
 }
 
-const Home = () => {
-    return (
-        <div className='Home'>
 
-            {/* <div className='auth'> */}
+class Home extends Component{
+    constructor(props){
+        super(props);    
+        this.state = {};
+    }
+    render(){
+        return(
+            <div className='Home'>
             <Login />
             <Register />
-            {/* </div> */}
+
             <Homebar />
 
             <Categories />
@@ -34,7 +37,10 @@ const Home = () => {
 
             <Footer />
         </div>
-    );
+        )
+    }
 }
 
 export default Home;
+
+

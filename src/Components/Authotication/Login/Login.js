@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { elemInOut } from '../../Home/Home';
@@ -24,102 +24,107 @@ const validation = Yup.object().shape(
     }
 );
 
-const Login = () => {
-    return (
-        <div id='login' className='Login'>
-            <div className="login-intro">
-                <h2 className="login-title">My Playground</h2>
-                <p>Make Scelet Playground yours with My Playground. Save
-                and share your favourite picks and make plans to go out with
-                      friends. Registration is fast and free.</p>
-            </div>
+class Login extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {}
+    }
+    render() {
+        return (
+            <div id='login' className='Login'>
+                <div className="login-intro">
+                    <h2 className="login-title">My Playground</h2>
+                    <p>Make Scelet Playground yours with My Playground. It makes easier to buy and sell products. Registration is fast and free.</p>
+                </div>
 
-            <Formik
-                initialValues={{ email: '', password: '' }}
-                validationSchema={validation}
-                onSubmit={(values, { setSubmitting, resetForm }) => {
-                    setSubmitting(true);
-                    setTimeout(() => {
-                        alert(JSON.stringify(values));
-                        resetForm();
-                        setSubmitting(false);
-                    }, 500);
-                }}
-            >
-                {(
-                    {
-                        values,
-                        touched,
-                        errors,
-                        handleChange,
-                        handleBlur,
-                        handleSubmit,
-                    }
-                ) => {
-                    return (
-                        <form className="login-data"
-                            onSubmit={handleSubmit}
-                        >
-                            <div className="login-fb">
-                                <div className='fb-icon'>
-                                    <img style={{ cursor: "not-allowed" }} src={require('../../../images/login-with-facebook.png')} alt='Fb'></img>
+                <Formik
+                    initialValues={{ email: '', password: '' }}
+                    validationSchema={validation}
+                    onSubmit={(values, { setSubmitting, resetForm }) => {
+                        setSubmitting(true);
+                        setTimeout(() => {
+                            alert(JSON.stringify(values));
+                            resetForm();
+                            setSubmitting(false);
+                        }, 500);
+                    }}
+                >
+                    {(
+                        {
+                            values,
+                            touched,
+                            errors,
+                            handleChange,
+                            handleBlur,
+                            handleSubmit,
+                        }
+                    ) => {
+                        return (
+                            <form className="login-data"
+                                onSubmit={handleSubmit}
+                            >
+                                <div className="login-fb">
+                                    <div className='fb-icon'>
+                                        <img style={{ cursor: "not-allowed" }} src={require('../../../images/login-with-facebook.png')} alt='Fb'></img>
+                                    </div>
+                                    <div className="fb-text">
+                                        <a href="#" style={{ cursor: "not-allowed" }}>Login with Facebook</a>
+                                    </div>
                                 </div>
-                                <div className="fb-text">
-                                    <a href="#" style={{ cursor: "not-allowed" }}>Login with Facebook</a>
+                                <div className="login-hr-or">
+                                    <div>Or</div>
+                                    <hr></hr>
                                 </div>
-                            </div>
-                            <div className="login-hr-or">
-                                <div>Or</div>
-                                <hr></hr>
-                            </div>
-                            <div className='login-errors'>
-                                <Error touch={touched.email} error={errors.email} />
-                                <Error touch={touched.password} error={errors.password} />
-                            </div>
-                            <div className="login-form-email">
-                                <Input
-                                    idName={'email'} type={'email'} value={values.email}
-                                    classname={''} placeholder={'Email Address...'}
-                                    onChange={handleChange} onBlur={handleBlur}
-                                />
-                            </div>
-                            <div className="login-form-pass">
-                                <Input
-                                    idName={'password'} type={'password'} value={values.password}
-                                    classname={''} placeholder={'Password...'}
-                                    onChange={handleChange} onBlur={handleBlur}
-                                />
-                            </div>
-                            <div className='login-form-submit'>
-                                <Input
-                                    idName={'submit'} type={'submit'} value={''}
-                                    classname={''} placeholder={''}
-                                    onChange={''} onBlur={''}
-                                />
-                                <div className='login-submit-triangle-dot'></div>
-                            </div>
-                            <div className="login-hr">
-                                <hr></hr>
-                            </div>
-                            <div className="login-links">
-                                <div className='opensignup'>
-                                    Don't have a profile?
+                                <div className='login-errors'>
+                                    <Error touch={touched.email} error={errors.email} />
+                                    <Error touch={touched.password} error={errors.password} />
+                                </div>
+                                <div className="login-form-email">
+                                    <input
+                                        id={'email'} name={'email'} value={values.email}
+                                        className={''} placeholder={'Email Address...'}
+                                        onChange={handleChange} onBlur={handleBlur}
+                                    >
+                                    </input>
+                                </div>
+                                <div className="login-form-pass">
+                                    <input
+                                        id={'password'} name={'password'} type={'password'} value={values.password}
+                                        className={''} placeholder={'Password...'}
+                                        onChange={handleChange} onBlur={handleBlur}
+                                    ></input>
+                                </div>
+                                <div className='login-form-submit'>
+                                    <input
+                                        id={'submit'} name={'submit'} type={'submit'} value={''}
+                                        className={''} placeholder={''}
+                                        onChange={handleChange} onBlur={handleBlur}
+                                    ></input>
+                                    <div className='login-submit-triangle-dot'></div>
+                                </div>
+                                <div className="login-hr">
+                                    <hr></hr>
+                                </div>
+                                <div className="login-links">
+                                    <div className='opensignup'>
+                                        Don't have a profile?
                                     <a id='register-from-login' onClick={() => elemInOut('register', 'login')} href='#'> Register Here</a>
+                                    </div>
+                                    <div className='openresetpass'>
+                                        <a style={{ cursor: "not-allowed" }}>Forgot Password?</a>
+                                    </div>
                                 </div>
-                                <div className='openresetpass'>
-                                    <a style={{ cursor: "not-allowed" }}>Forgot Password?</a>
-                                </div>
-                            </div>
-                        </form>
-                    )
-                }}
-            </Formik>
+                            </form>
+                        )
+                    }}
+                </Formik>
 
-            <div id='loginExit' onClick={loginexit} className="login-exit">
-                <img src={require('../../../images/exit.png')}></img>
-            </div>
-        </div >
-    );
+                <div id='loginExit' onClick={loginexit} className="login-exit">
+                    <img src={require('../../../images/exit.png')}></img>
+                </div>
+            </div >
+        );
+    }
 }
 
 export default Login;

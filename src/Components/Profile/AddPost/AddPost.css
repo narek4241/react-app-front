@@ -1,0 +1,268 @@
+.AddPost{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    /* form */
+    .add-post{
+        width: 60%;
+        /* width: 100%; */
+        min-height: calc(100vh - 80px);
+        height: auto;
+        /* background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%); */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+        /* equal to  '.add-post form' */
+        .add-post-errors, .add-post-cat, .add-post-region, .add-post-type, .add-post-state, .add-post-price-currency,
+        .add-post-title, .add-post-desc, .add-post-imgUrl, .add-post-role, .add-post-contact, .add-post-submit
+        {
+            width: 100%;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            padding-left: 3%;
+            border-bottom: 1px dashed grey;
+            box-sizing: border-box;
+        }
+            .add-post label{
+                font-size: 16px;
+                color: grey;
+                width: 10%;
+                padding-right: 20px;
+            }
+            .add-post span{
+                font-size: 16px;
+            }
+            /* elems */
+            .add-post form input, .add-post-field{
+                border: 0;
+                outline: 0;
+                border-left: 2px solid #000;
+                border-bottom: 1px solid #ebecec;
+                background-color: transparent;
+            }
+                .add-post form input:hover, .add-post-field:hover{
+                    background-color: #ebecec;
+                }
+            .add-post form input{
+                height: 40px;
+                font-size: 16px;
+                padding: 5px;
+            }
+            .add-post-field{
+                width: 300px;
+                min-height: 50px;
+                padding: 5px;
+            }
+            
+            /* custom */
+            .add-post-errors{
+                width: 100%;
+                display: flex;
+                height: auto;
+                flex-direction: column;
+                font-size: 20px;
+            }
+                .add-post-errors > div{
+                    width: 100%;
+                    padding: 20px 0px;
+                    border-radius: 10px;
+                    border: 1px solid grey;
+                    box-sizing: border-box;
+                    font-size: 18px;
+                    background-color: transparent;
+                }
+                .add-post-error{
+                    /* margin: 20px; */
+                    /* font-size: 30px; */
+                    /* background-color: blue; */
+                }
+            .add-post-type{
+                padding-left: 10%;
+            }
+                .add-post-type .add-post-field{
+                    width: 10%;
+                    margin-left: 10%;
+                }
+                .add-post-type div{
+                    width: 15%; 
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            .add-post-price-currency > div{
+                width: 100%;
+            }
+                .add-post-price-currency > div > input{
+                    width: 20.7%;
+                    margin-left: .7%;
+                    height: 50px;
+                    padding: 5px;
+                }
+                .add-post-price-currency > div > .add-post-field{
+                    width: 10%;
+                }
+            .add-post-title > input{
+                width: 100%;
+                margin-left: .7%;
+                min-height: 50px;
+            }
+            .add-post-desc .add-post-field{
+                width: 100%;
+                height: 200px;
+                padding: 1%;
+            }
+            .add-post-imgUrl{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+                .add-post-imgUrl > div > label{
+                    width: 10.7%;
+                    display: flex;
+                    align-items: center;
+                }
+                .add-post-imgUrl > div{ 
+                    width: 100%;
+                    display: flex;
+                    margin: 10px;
+                    justify-content: space-between;
+                }
+                    .add-post-imgUrl > div > input{ 
+                        width: 100%;
+                        margin-right: .5%;
+                    }
+            .add-post-role{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                display: flex;
+            }        
+                .add-post-role form{
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                }
+                    .add-post-role > form > div{
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                    }
+                        .add-post-role > form > div > label {
+                            width: 100%;
+                        }
+                        .add-post-role .add-post-field{
+                            width: 1.5%;
+                            margin-right: 20px;
+                        }
+            .add-post-contact > input{
+                width: 20%;
+                margin-left: .7%;
+                min-height: 50px;
+            }    
+                .add-post-contact > label{
+                    text-transform: capitalize;
+                }
+            .add-post-submit{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                position: relative;
+            }
+                .add-post-submit input{
+                    width: 10%;
+                    height: 100%;
+                    min-height: 50px;
+                    background:var(--home-bar-bg) url(../../../images/login-submit.png) no-repeat center ;
+                    background-size: 40%;
+                    cursor: pointer;
+                    z-index: 1;
+                }
+                    .add-post-submit input:hover{
+                        /* background-color: var(--home-bar-bg); */
+                        background-color: red;
+                    }
+                .add-post-submit-triangle-dot{
+                    border-top: 8px solid transparent;
+                    border-bottom: 8px solid transparent;
+                    border-right: 15px solid var(--home-bar-bg);
+                    position: absolute;
+                    top: 15%;
+                    left: 49.75%;
+                    transform: rotate(-270deg);
+                    z-index: 2;
+                }
+                .add-post form input, .add-post-field{
+                    border: 0;
+                    outline: 0;
+                    border-left: 2px solid #000;
+                    border-bottom: 1px solid #ebecec;
+                    background-color: transparent;
+                }
+
+
+
+
+
+
+    @media (max-width: 1350px){
+        .add-post{
+            width: 100%;
+        }
+    }        
+            
+
+
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        

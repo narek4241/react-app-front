@@ -16,7 +16,7 @@ const Categories = () => {
                 <div className='cats-options-heading'>Pick your Category:</div>
                 <div className='cats-options-content'>
                     <div>
-                        <div>Cars</div>
+                        <div>Vehicles</div>
                         <div>
                             {/* <img src="../../../images/down-arrow.png" /> */}
                             ↓
@@ -41,7 +41,7 @@ const Categories = () => {
                         </div>
                     </div>
                     <div>
-                        <div>Other</div>
+                        <div>Everything Else</div>
                         <div>
                             ↓
                         </div>

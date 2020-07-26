@@ -55,6 +55,7 @@
                 border: 0;
                 outline: none;
                 padding: 0px 15px;
+                background-color: var(--input-bg);
             }
             .register-form-submit{
                 width: 5%;
@@ -70,14 +71,14 @@
                 .register-form-submit input[type=submit]{
                     width: 100%;
                     height: 100%;
-                    background:var(--home-bar-bg) url(../../../images/login-submit.png) no-repeat center ;
+                    background:var(--sec-col1) url(../../../images/login-submit.png) no-repeat center ;
                     background-size: 40%;
                     cursor: pointer;
                 }
                 .register-submit-triangle-dot{
                     border-top: 8px solid transparent;
                     border-bottom: 8px solid transparent;
-                    border-right: 15px solid var(--home-bar-bg);
+                    border-right: 15px solid var(--sec-col1);
                     position: absolute;
                     top: 35%;
                     left: -10%;
@@ -120,11 +121,11 @@
                 align-items: center;
                 flex-direction: row;
                 font-size: 14px;
-                color: #fff;
+                color: var(--sec-col2);
             }
                 .login-form-terms p > a{
-                    color: #fff;
                     cursor: pointer;
+                    color: var(--sec-col1);
                 }
         .opensignin{
             margin-left: 2.5%;
@@ -133,9 +134,11 @@
             top: 77%;
             top: 83%;
             left: 28.35%;
+            color: var(--sec-col2);
         }
             .opensignin > a{
                 color: #fff;
+                color: var(--sec-col1);
             }
     .register-exit{
         width: 35px;

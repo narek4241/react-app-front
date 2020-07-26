@@ -14,6 +14,10 @@
     /* margin: 2px 2px; */
     background-color: var(--post-bg);
 }
+.Post a{
+    text-decoration: none;
+    color: #000;
+}
     .Post:hover{
         /* box-shadow: 0 8px 17px 0 rgba(0,0,0,.15); */
         box-shadow: 0 11px 17px 0 rgba(0,0,0,.15);
