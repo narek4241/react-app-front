@@ -29,6 +29,26 @@ class Login extends Component {
         super(props);
         this.state = {}
     }
+
+    fetchLogin = async (value) => {
+        try {
+            // https://agile-temple-62197.herokuapp.com/auth/signin
+            const fetchLoginData = await fetch('http://localhost:3333/auth/signin',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(value)
+                })
+            const data = await fetchLoginData.json();
+            console.log(data);
+            localStorage.setItem('token', data.auth_token);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     render() {
         return (
             <div id='login' className='Login'>
@@ -41,9 +61,10 @@ class Login extends Component {
                     initialValues={{ email: '', password: '' }}
                     validationSchema={validation}
                     onSubmit={(values, { setSubmitting, resetForm }) => {
+
                         setSubmitting(true);
                         setTimeout(() => {
-                            alert(JSON.stringify(values));
+                            this.fetchLogin(values);
                             resetForm();
                             setSubmitting(false);
                         }, 500);
@@ -95,11 +116,13 @@ class Login extends Component {
                                     ></input>
                                 </div>
                                 <div className='login-form-submit'>
+                                    {/* <a style={{width: '100%',height: '100%', backgroundColor: '#fff'}} href='http://localhost:3000/profile'> */}
                                     <input
                                         id={'submit'} name={'submit'} type={'submit'} value={''}
                                         className={''} placeholder={''}
                                         onChange={handleChange} onBlur={handleBlur}
                                     ></input>
+                                    {/* </a> */}
                                     <div className='login-submit-triangle-dot'></div>
                                 </div>
                                 <div className="login-hr">

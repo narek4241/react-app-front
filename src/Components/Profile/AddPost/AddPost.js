@@ -81,6 +81,21 @@ class AddPost extends Component {
         super(props);
         this.state = {}
     }
+    // https://agile-temple-62197.herokuapp.com/posts/add
+    fetchAddPost = async (value) => {
+
+        console.log(value, JSON.stringify(value));
+        const fetchAddPostData = await fetch('http://localhost:3333/posts/add?titile=11111',
+            {
+                method: "GET",
+                headers: {
+                    'Content-Type': 'applicaltion/json',
+                }            })
+        const data = await fetchAddPostData.json();
+    }
+
+
+
     render() {
         return (
             <div id='addPost' className='AddPost'>
@@ -95,14 +110,23 @@ class AddPost extends Component {
                         title: '', desc: '', imgUrl: '', imgUrl2: '', imgUrl3: '', imgUrl4: '', mgUrl5: '',
                         role: 'owner', contact: ''
                     }}
-                    validationSchema={validation}
+                    // validationSchema={validation}
+                    // onSubmit={(values, { setSubmitting, resetForm }) => {
+                    //     setSubmitting(true);
+                    //     setTimeout(() => {
+                    //         console.log(JSON.stringify(values));
+                    //         resetForm();
+                    //         setSubmitting(false);
+                    //     }, 500);
+                    // }}
+
                     onSubmit={(values, { setSubmitting, resetForm }) => {
                         setSubmitting(true);
-                        setTimeout(() => {
-                            alert(JSON.stringify(values));
-                            resetForm();
-                            setSubmitting(false);
-                        }, 500);
+                        this.fetchAddPost(values);
+                        // console.log(JSON.stringify(values));
+                        // alert(JSON.stringify(values));
+                        resetForm();
+                        setSubmitting(false);
                     }}
                 >
                     {(
@@ -130,10 +154,10 @@ class AddPost extends Component {
                                     <Error touch={touched.imgUrl5} error={errors.imgUrl5} />
                                     <Error touch={touched.contact} error={errors.contact} />
                                 </div>
-                                <form className="add-post-cat">
+                                <div className="add-post-cat">
                                     <label>Category</label>
                                     <Field name="cat" as="select" onChange={handleChange} onBlur={handleBlur} className="add-post-field" >
-                                        <option value="" selected="selected">Խնդրում ենք ընտրել</option>
+                                        <option defaultValue>Խնդրում ենք ընտրել</option>
                                         <optgroup label="Marketplace">
                                             <option value="Real Estate">Անշարժ գույք</option>
                                             <option value="Vehicles">Տրանսպորտ</option>
@@ -149,13 +173,13 @@ class AddPost extends Component {
                                             <option value="Everything Else">Այլ</option>
                                         </optgroup>
                                     </Field>
-                                </form>
+                                </div>
 
-                                <form className="add-post-region">
+                                <div className="add-post-region">
                                     <label>Region</label>
                                     <div>
                                         <Field name="region" as="select" onChange={handleChange} onBlur={handleBlur} className="add-post-field">
-                                            <option value="" selected="selected">Խնդրում ենք ընտրել</option>
+                                            <option defaultValue>Խնդրում ենք ընտրել</option>
                                             <optgroup label="Երևան">
                                                 <option value="Երևան,Աջափնյակ">Աջափնյակ</option>
                                                 <option value="Երևան,Արաբկիր">Արաբկիր</option>
@@ -295,30 +319,30 @@ class AddPost extends Component {
                                             <option value="Հայաստանից դուրս">Հայաստանից դուրս</option>
                                         </Field>
                                     </div>
-                                </form>
+                                </div>
 
-                                <form className="add-post-type">
+                                <div className="add-post-type">
                                     {/* <label>Type</label> */}
                                     <div><span>Offer</span><Field type="radio" name="type" value="offer" className='add-post-field' /></div>
                                     <div><span>Exchange</span><Field type="radio" name="type" value="exchange" className='add-post-field' /></div>
                                     <div><span>Search</span><Field type="radio" name="type" value="search" className='add-post-field' /></div>
-                                </form>
+                                </div>
 
-                                <form className="add-post-state">
+                                <div className="add-post-state">
                                     <label>State</label>
                                     <Field style={{ width: '100%', maxWidth: '300px', height: '50px' }} name="state" as="select" className="add-post-field">
                                         <option value="">Please Select</option>
                                         <option value="new">New</option>
                                         <option value="used">Used</option>
                                     </Field>
-                                </form>
+                                </div>
 
-                                <form className="add-post-price-currency">
+                                <div className="add-post-price-currency">
                                     <label>Price :</label>
                                     <div>
                                         <input
                                             id={'price'} name={'price'} type={'text'} value={values.price}
-                                            classname={''} placeholder={'Price...'}
+                                            className={''} placeholder={'Price...'}
                                             onChange={handleChange} onBlur={handleBlur}
                                         ></input>
                                         <Field name="currency" as="select" className='add-post-field'>
@@ -328,91 +352,90 @@ class AddPost extends Component {
                                             <option value="eur">EUR</option>
                                         </Field>
                                     </div>
-                                </form>
+                                </div>
 
-                                <form className="add-post-title">
+                                <div className="add-post-title">
                                     <label>Title:</label>
                                     <input
                                         id={'title'} name={'title'} type={'text'} value={values.title}
-                                        classname={''} placeholder={'Title (required)'}
+                                        className={''} placeholder={'Title (required)'}
                                         onChange={handleChange} onBlur={handleBlur}
                                     ></input>
-                                </form>
+                                </div>
 
-                                <form className="add-post-desc">
+                                <div className="add-post-desc">
                                     <label>Description:</label>
                                     <Field name="desc" as="textarea" className="add-post-field"></Field>
-                                </form>
+                                </div>
 
-                                <form className="add-post-imgUrl">
+                                <div className="add-post-imgUrl">
                                     <div>
                                         <label>ImgUrl(s):</label>
                                         <input
                                             id={'imgUrl'} name={'imgUrl'} type={'text'} value={values.imgUrl}
-                                            classname={''} placeholder={'ImgUrl...'}
+                                            className={''} placeholder={'ImgUrl...'}
                                             onChange={handleChange} onBlur={handleBlur}
                                         ></input>
                                     </div>
                                     <div>
                                         <input
                                             id={'imgUrl2'} name={'imgUrl2'} type={'text'} value={values.imgUrl2}
-                                            classname={''} placeholder={'ImgUrl2 (optional)'}
+                                            className={''} placeholder={'ImgUrl2 (optional)'}
                                             onChange={handleChange} onBlur={handleBlur}
                                         ></input>
                                         <input
                                             id={'imgUrl3'} name={'imgUrl3'} type={'text'} value={values.imgUrl3}
-                                            classname={''} placeholder={'ImgUrl3 (optional)'}
+                                            className={''} placeholder={'ImgUrl3 (optional)'}
                                             onChange={handleChange} onBlur={handleBlur}
                                         ></input>
                                     </div>
                                     <div>
                                         <input
                                             id={'imgUrl4'} name={'imgUrl4'} type={'text'} value={values.imgUrl4}
-                                            classname={''} placeholder={'ImgUrl4 (optional)'}
+                                            className={''} placeholder={'ImgUrl4 (optional)'}
                                             onChange={handleChange} onBlur={handleBlur}
                                         ></input>
                                         <input
                                             id={'imgUrl5'} name={'imgUrl5'} type={'text'} value={values.imgUrl5}
-                                            classname={''} placeholder={'ImgUrl5 (optional)'}
+                                            className={''} placeholder={'ImgUrl5 (optional)'}
                                             onChange={handleChange} onBlur={handleBlur}
                                         ></input>
                                     </div>
-                                </form>
-                                <form className="add-post-role">
+                                </div>
+                                <div className="add-post-role">
                                     {/* <label>Role</label> */}
-                                    <form className='input'>
+                                    <div>
                                         <Field type="radio" name="role" value="owner" className="add-post-field" />
                                         <div>
                                             <span>Owner</span>
                                             <label>If you are selling your own item and you are its owner.</label>
                                         </div>
-                                    </form>
-                                    <form>
+                                    </div>
+                                    <div>
                                         <Field type="radio" name="role" value="organization" className="add-post-field" />
                                         <div>
                                             <span>Organization</span>
                                             <label>If you sell wholesale, represent a store or an organization.</label>
                                         </div>
-                                    </form>
-                                </form>
+                                    </div>
+                                </div>
 
-                                <form className="add-post-contact">
+                                <div className="add-post-contact">
                                     <label>Contact:</label>
                                     <input
                                         id={'contact'} name={'contact'} type={'text'} value={values.contact}
-                                        classname={''} placeholder={'+374CCNNNNNN'}
+                                        className={''} placeholder={'+374CCNNNNNN'}
                                         onChange={handleChange} onBlur={handleBlur}
                                     ></input>
-                                </form>
+                                </div>
 
-                                <form className="add-post-submit">
+                                <div className="add-post-submit">
                                     <input
                                         id={'submit'} name={'submit'} type={'submit'} value={''}
-                                        classname={''} placeholder={'Submit...'}
-                                        onChange={''} onBlur={''}
+                                        className={''} placeholder={'Submit...'}
                                     ></input>
                                     <div className='add-post-submit-triangle-dot'></div>
-                                </form>
+                                </div>
                             </form>
                         )
                     }}

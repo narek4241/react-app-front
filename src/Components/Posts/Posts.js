@@ -1,20 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Post from './Post/Post';
 import Filter from './Filter/Filter';
 import './Posts.css';
 
-
-// class Posts extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {  }
-//     }
-//     render() { 
-//         return (  );
-//     }
-// }
- 
-// export default Posts;
 
 const Posts = ({data}) => {
 
@@ -24,6 +12,7 @@ const Posts = ({data}) => {
             <Post 
                 // line below is 'opt' (avoids)
                 key = {prod._id}
+                id = {prod._id}
                 imgUrl = {prod.imgUrl}
                 price = {prod.price}
                 title = {prod.title}
@@ -36,12 +25,7 @@ const Posts = ({data}) => {
 
     return(
         <div className="Posts">
-            {/* <Filter /> */}
             {posts}
-
-            {/* {posts2} */}
-            {/* {posts3} */}
-            {/* {posts4} */}
         </div>
     );
 }

@@ -49,6 +49,25 @@ class Register extends Component {
         super(props);
         this.state = {}
     }
+
+    fetchRegister = async (value) => {
+        try {
+            // https://agile-temple-62197.herokuapp.com/auth/signup
+            const fetchRegisterData = await fetch('http://localhost:3333/auth/signup',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(value)
+                })
+            const data = await fetchRegisterData.json();
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
     render() {
         return (
             <div id='register' className='Register'>
@@ -64,10 +83,11 @@ class Register extends Component {
                     onSubmit={(values, { setSubmitting, resetForm }) => {
                         setSubmitting(true);
                         setTimeout(() => {
-                            alert(JSON.stringify(values));
+                            this.fetchRegister(values);
                             resetForm();
                             setSubmitting(false);
-                        }, 500);
+                        }, 1000);
+                        elemInOut('login', 'register');
                     }}
                 >
                     {(
@@ -94,46 +114,45 @@ class Register extends Component {
                                     <Error touch={touched.checkboxTerms} error={errors.checkboxTerms} />
                                 </div>
                                 <div className="register-form-firstname-lastname">
-                                    <input 
+                                    <input
                                         id={'firstname'} name={'firstname'} type={'text'} value={values.firstname}
                                         className={''} placeholder={'Firstname (required)'}
                                         onChange={handleChange} onBlur={handleBlur}
                                     ></input>
-                                    <input 
+                                    <input
                                         id={'lastname'} name={'lastname'} type={'text'} value={values.lastname}
-                                        className={''} placeholder={'Lastname (optional)'}
+                                        className={''} placeholder={'Lastname (lb-req)'}
                                         onChange={handleChange} onBlur={handleBlur}
                                     ></input>
                                 </div>
                                 <div className="register-form-email-confirmemail">
-                                    <input 
+                                    <input
                                         id={'email'} name={'email'} type={'text'} value={values.email}
                                         className={''} placeholder={'Email (required)'}
                                         onChange={handleChange} onBlur={handleBlur}
                                     ></input>
-                                    <input 
+                                    <input
                                         id={'phone'} name={'phone'} type={'tel'} value={values.phone}
-                                        className={''} placeholder={'Email (optional)'}
+                                        className={''} placeholder={'Phone: +374CCNNNNNN'}
                                         onChange={handleChange} onBlur={handleBlur}
                                     ></input>
                                 </div>
                                 <div className="register-form-pass-confirmpass">
-                                    <input 
+                                    <input
                                         id={'password'} name={'password'} type={'password'} value={values.password}
                                         className={''} placeholder={'Password (required)'}
                                         onChange={handleChange} onBlur={handleBlur}
                                     ></input>
-                                    <input 
+                                    <input
                                         id={'passwordConf'} name={'passwordConf'} type={'password'} value={values.passwordConf}
-                                        className={''} placeholder={'Confirm password (optional)'}
+                                        className={''} placeholder={'Confirm password'}
                                         onChange={handleChange} onBlur={handleBlur}
                                     ></input>
                                 </div>
                                 <div className="register-form-submit">
-                                    <input 
+                                    <input
                                         id={'submit'} name={'submit'} type={'submit'} value={''}
                                         className={''} placeholder={''}
-                                        onChange={''} onBlur={''}
                                     ></input>
                                     <div className='register-submit-triangle-dot'></div>
                                 </div>
@@ -142,7 +161,7 @@ class Register extends Component {
                                 </div>
                                 <div className='register-links'>
                                     <div className='login-form-terms'>
-                                        <input 
+                                        <input
                                             id={'checkboxTerms'} name={'checkboxTerms'} type={'checkbox'} value={''}
                                             className={''} placeholder={'Confirm password (optional)'}
                                             onChange={handleChange} onBlur={handleBlur}

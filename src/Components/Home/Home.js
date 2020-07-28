@@ -3,7 +3,6 @@ import Login from '../Authotication/Login/Login';
 import Register from '../Authotication/Register/Register';
 import Homebar from './Homebar/Homebar';
 import Categories from './Categories/Categories';
-import { data } from '../../App';
 import Posts from '../Posts/Posts';
 import Footer from '../Footer/Footer';
 import './Home.css';
@@ -18,29 +17,53 @@ export const elemInOut = (elemIn, elemOut) => {
 }
 
 
-class Home extends Component{
-    constructor(props){
-        super(props);    
-        this.state = {};
+class Home extends Component {
+    constructor(props) {
+        super(props);
     }
-    render(){
-        return(
+    state = {
+        postsData: []
+    }
+
+    fetchPosts = async () => {
+        try {
+            // https://agile-temple-62197.herokuapp.com/posts
+            const fetchPostsData = await fetch('http://localhost:3333/posts');
+            const data = await fetchPostsData.json();
+
+            this.setState({
+                postsData: data
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    componentDidMount = () => {
+        this.fetchPosts();
+    }
+
+
+    render() {
+        return (
             <div className='Home'>
-            <Login />
-            <Register />
+                <Login />
+                <Register />
 
-            <Homebar />
+                <Homebar />
 
-            <Categories />
+                <Categories />
 
-            <Posts data={data}/>
+                <Posts data={this.state.postsData} />
 
-            <Footer />
-        </div>
+                <Footer />
+            </div>
         )
     }
 }
 
 export default Home;
+
+
 
 

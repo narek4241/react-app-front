@@ -1,22 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Post.css';
 
-// class Post extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {  }
-//     }
-//     render() { 
-//         return (  );
-//     }
-// }
- 
-// export default Post;
 
-const Post = ({ imgUrl, price,currency, title, key }) => {
+const Post = ({id, imgUrl, price,currency, title}) => {
     return (
         <div className="Post">
-            <a href={`posts/post/${key}`}>
+            <a href={`posts/post/${id}`}>
                 <div className="img">
                     <img className="post_img" alt="img" src={imgUrl} />
                 </div>
