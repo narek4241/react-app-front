@@ -3,12 +3,11 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { elemInOut } from '../../Home/Home';
 import Error from '../Error';
-import Input from '../Input';
 import './Register.css';
 
 
 let registerexit = () => {
-    document.getElementById('register').style.animation = `register-out 1s forwards 1`;
+    document.getElementById('register').style.animation = `register-out 1s ease-in-out forwards 1`;
 }
 
 const phoneRegExp = /^[+374]{4}[0-9]{8}/;

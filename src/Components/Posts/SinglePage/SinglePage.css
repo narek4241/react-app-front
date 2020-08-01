@@ -41,18 +41,19 @@
                     display: flex;
                     border-top: 1px dashed grey;
                 }
-                    .post-price, .post-date{
+                    .post-price, .post-region{
                         height: 100%;
                     }
                     .post-price{
-                        width: 60%;
                         display: flex;
                         font-weight: 500;
                         font-size: 25px;
-                        text-decoration: underline;
+                        text-transform: uppercase;
                     }
-                    .post-date{
-                        width: 40%;
+                    .post-region{
+                        text-transform: capitalize;
+                        padding-left: 5%;
+                        color: grey;
                     }
             .post-images{
                 width: 100%;
@@ -81,12 +82,25 @@
                         object-fit: contain;
                         padding: 10px 0px;
                     }
+            .post-other{
+                width: 75%;
+            }
+                .post-other > div{
+                    border-bottom: 1px dashed grey;
+                    padding: 10px 0px;
+                    text-transform: capitalize;
+                    font-weight: 200;
+                    display: flex;
+                }
+                    .post-other > div > div{
+                        font-weight: 500;
+                    }
             .post-desc{
                 width: 75%;
                 font-size: 17px;
                 margin: 3% 0%;
                 padding: 10px 0px;
-                border-top: 1px dashed grey;
+                /* border-top: 1px dashed grey; */
             }
         .single-page-right-side{
             width: 40%;

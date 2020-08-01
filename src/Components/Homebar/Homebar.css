@@ -26,7 +26,9 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                cursor: pointer;
+                cursor: not-allowed;
+                color: #000;
+                text-decoration: none;
             }
         .logo{
             width: 80%;
@@ -83,4 +85,30 @@
             .sign-in a, .sign-up a{
                 width: 100%;
                 cursor: pointer;
+                color: #fff;
+                text-decoration: none;
+                text-transform: uppercase;
             }
+        /* #imitation2 #dirty #spacereduce #improve */
+        .my-profile{
+            width: 20%;
+            height: 50%;
+            color: white;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly; 
+        }
+            .my-profile-button a, .my-profile-logout a{
+                width: 100%;
+                cursor: pointer;
+                color: #fff;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+
+
+
+
+

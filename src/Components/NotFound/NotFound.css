@@ -1,0 +1,33 @@
+.profile-not-found{
+    width: 100%;
+    height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+    .profile-not-found-image{
+        display: flex;
+        justify-content: center;
+    }
+        .profile-not-found-image img{
+            width: 25%;
+        }
+    .profile-not-found-heading{
+        text-transform: uppercase;
+    }
+    .profile-not-found-message{
+        width: 25%;
+        display: flex;
+        border-top: 1px dashed grey;
+        border-bottom: 1px dashed grey;
+    }
+    .profile-not-found-return{
+        width: 25%;
+        display: flex;
+        border-bottom: 1px dashed grey;
+        text-transform: capitalize;
+    }
+        .profile-not-found-return a{
+            color: #000;
+        }

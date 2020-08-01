@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import { Link, withRouter} from 'react-router-dom';
 import { elemInOut } from '../../Home/Home';
+import { elemOut } from '../../Home/Home';
 import Error from '../Error';
-import Input from '../Input';
 import './Login.css';
 
 
 let loginexit = () => {
-    document.getElementById('login').style.animation = `login-out 1s forwards 1`;
+    document.getElementById('login').style.animation = `login-out 1s ease-in-out forwards 1`;
 }
 
 const validation = Yup.object().shape(
@@ -24,10 +25,18 @@ const validation = Yup.object().shape(
     }
 );
 
+
 class Login extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        // this.state = {}
+    }
+    state = {
+        isLogged: false
+    }
+
+    login = () => {
+        // this.setState(isLogged: true)
     }
 
     fetchLogin = async (value) => {
@@ -67,6 +76,8 @@ class Login extends Component {
                             this.fetchLogin(values);
                             resetForm();
                             setSubmitting(false);
+                            this.props.history.push('/auth/profile');   
+                            elemOut('login');
                         }, 500);
                     }}
                 >
@@ -89,7 +100,7 @@ class Login extends Component {
                                         <img style={{ cursor: "not-allowed" }} src={require('../../../images/login-with-facebook.png')} alt='Fb'></img>
                                     </div>
                                     <div className="fb-text">
-                                        <a href="#" style={{ cursor: "not-allowed" }}>Login with Facebook</a>
+                                        <Link to="#" style={{ cursor: "not-allowed" }}>Login with Facebook</Link>
                                     </div>
                                 </div>
                                 <div className="login-hr-or">
@@ -116,13 +127,11 @@ class Login extends Component {
                                     ></input>
                                 </div>
                                 <div className='login-form-submit'>
-                                    {/* <a style={{width: '100%',height: '100%', backgroundColor: '#fff'}} href='http://localhost:3000/profile'> */}
                                     <input
                                         id={'submit'} name={'submit'} type={'submit'} value={''}
                                         className={''} placeholder={''}
                                         onChange={handleChange} onBlur={handleBlur}
                                     ></input>
-                                    {/* </a> */}
                                     <div className='login-submit-triangle-dot'></div>
                                 </div>
                                 <div className="login-hr">
@@ -131,11 +140,12 @@ class Login extends Component {
                                 <div className="login-links">
                                     <div className='opensignup'>
                                         Don't have a profile?
-                                    <a id='register-from-login' onClick={() => elemInOut('register', 'login')} href='#'> Register Here</a>
+                                    <Link id='register-from-login' to='#' onClick={() => elemInOut('register', 'login')}> Register Here</Link>
                                     </div>
                                     <div className='openresetpass'>
-                                        <a style={{ cursor: "not-allowed" }}>Forgot Password?</a>
+                                        <Link to='' style={{ cursor: "not-allowed" }}>Forgot Password?</Link>
                                     </div>
+                                    {/* {localStorage.token ? <Redirect to='/auth/profile' /> : <div>NOpe</div>} */}
                                 </div>
                             </form>
                         )
@@ -150,7 +160,9 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default withRouter(Login);
+// export default Login;
+
 
 
 

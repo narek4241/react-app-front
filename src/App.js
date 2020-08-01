@@ -3,17 +3,13 @@ import Home from './Components/Home/Home';
 import Posts from './Components/Posts/Posts';
 import Footer from './Components/Footer/Footer';
 import Profile from './Components/Profile/Profile';
-import AddPost from './Components/Profile/AddPost/AddPost';
+import AddPost from './Components/Posts/AddPost/AddPost';
 import SinglePage from './Components/Posts/SinglePage/SinglePage';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 // import AppLoader from './Components/AppLoader/AppLoader';
 import './App.css';
-
-
-// const localize = () => {
-//   {}
-// }
+import NotFound from './Components/NotFound/NotFound';
 
 
 export const data = [
@@ -130,7 +126,79 @@ export const data = [
     },
     __v: 0,
   },
-];
+  {
+    date: "2020-07-27T17:48:32.552Z",
+    _id: "5f1f2b9d1f72d200174e7e78",
+    title: "Iphone 11PRO",
+    price: "1500",
+    state: "new",
+    imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaCy0oZgRrOxiBZXAw2ZVah0pfAF8TR-0Crw&usqp=CAU",
+    userId: {
+      date: "2020-07-23T18:41:31.447Z",
+      _id: "5f19daab1461a4d8372e4cf3",
+      firstname: "Rafo",
+      lastname: "Harutyunyan",
+      email: "rafo@gmail.com",
+      contact: "+37494286307",
+    },
+    __v: 0,
+  },
+  {
+    date: "2020-07-28T21:19:15.499Z",
+    _id: "5f21f10d01097f7eed81f98c",
+    cat: "Vehicles",
+    region: "Գյումրի,Շիրակ",
+    type: "exchange",
+    state: "used",
+    price: "42000",
+    currency: "usd",
+    title: "Mercedes Benz G-class 2009",
+    desc: "Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009Mercedes Benz G-class 2009",
+    imgUrl: "https://i.pinimg.com/474x/e1/18/11/e11811d7c7942fe86afa760f6204f6de.jpg",
+    imgUrl2: "",
+    imgUrl3: "",
+    imgUrl4: "",
+    imgUrl5: "",
+    role: "owner",
+    contact: "+37477464241",
+    userId: {
+      date: "2020-07-23T18:41:31.447Z",
+      _id: "5f19daab1461a4d8372e4cf3",
+      firstname: "Rafo",
+      lastname: "Harutyunyan",
+      email: "rafo@gmail.com",
+      contact: "+37494286307",
+    },
+    __v: 0,
+  },
+  {
+    date: "2020-07-30T11:30:35.368Z",
+    _id: "5f22b13f3c5a88158d033cae",
+    cat: "Vehicles",
+    region: "Երևան,Կենտրոն",
+    type: "exchange",
+    state: "used",
+    price: "1000000",
+    currency: "usd",
+    title: "Rolls Royce Phantom ",
+    desc: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/p90378219-highres-1575322323.jpg?crop=1.00xw:0.752xh;0,0.139xh&resize=640:*https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/p90378219-highres-1575322323.jpg?crop=1.00xw:0.752xh;0,0.139xh&resize=640:*https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/p90378219-highres-1575322323.jpg?crop=1.00xw:0.752xh;0,0.139xh&resize=640:*https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/p90378219-highres-1575322323.jpg?crop=1.00xw:0.752xh;0,0.139xh&resize=640:*",
+    imgUrl: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/p90378219-highres-1575322323.jpg?crop=1.00xw:0.752xh;0,0.139xh&resize=640:*",
+    imgUrl2: "",
+    imgUrl3: "",
+    imgUrl4: "",
+    imgUrl5: "",
+    role: "owner",
+    contact: "+37477000000",
+    userId: {
+      date: "2020-07-30T11:30:35.412Z",
+      _id: "5f22b0e93c5a88158d033cad",
+      firstname: "User",
+      lastname: "Useryan",
+      email: "user@gmail.com",
+    },
+    __v: 0,
+  },
+]
 
 
 class App extends Component {
@@ -164,13 +232,13 @@ class App extends Component {
               <Route path='/' exact component={Home} />
               {/* <AppLoader /> */}
               <Route path='/posts/add' component={AddPost} />
-              <Route path='/posts/post/:id' component={SinglePage} />
+
+              <Route path='/auth/profile' component={Profile} />
               
-              {/* {localStorage.token ? <Route path='/profile' component={Profile} /> : <Route render={() => {<h1>NotFound</h1>}} />} */}
-              
-              {/* <Route path='/profile' render = {() => {localStorage.token ? <Route path='/profile' component={Profile} /> : <Route component={Home} />}}/> */}
-              {/* <Route path='/custom' render = {() => null} */}
-              {/* // <Route path='/profile' component={Profile} /> */}
+              <Route path='/posts/post/:postId' component={SinglePage} />
+
+              <Route path='*' exact render={() => {return(<NotFound message='The Requested URL was Not Found on This Server'></NotFound>)}} />
+
             </Switch>
           </BrowserRouter>
         </div>

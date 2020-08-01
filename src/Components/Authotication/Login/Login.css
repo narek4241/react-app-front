@@ -189,7 +189,7 @@
             width: 100%;
         }
 
-
+    /* HINT: use 'alternate' direction to get 'on off'* effect #improve */
     @keyframes login-in{
         0%{height: 0;}
         100%{height: 46.5vh;}
