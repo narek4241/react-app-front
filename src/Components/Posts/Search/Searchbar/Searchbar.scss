@@ -1,0 +1,39 @@
+@mixin flexCenter($direction){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+.Searchbar{
+    width: 100%;
+    min-height: 100px;
+    height: auto;
+    @include flexCenter(column);
+    background-color: grey;
+    border: 1px solid #000;
+    box-sizing: border-box;
+
+    form{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 3%;
+    }
+        input:first-child{
+            width: 275px;
+            outline: 0;
+            border: 0;
+            font-size: 24px;
+        }
+        input:nth-child(2){
+            width: 125px;
+        }
+}
+
+
+
+
+
+
+

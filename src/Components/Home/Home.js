@@ -61,7 +61,7 @@ class Home extends Component {
 
                 <Categories />
 
-                <Posts data={this.state.postsData} />
+                <Posts data={this.state.postsData}/>
 
                 <Footer />
             </div>

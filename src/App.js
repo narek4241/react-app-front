@@ -10,6 +10,7 @@ import Loader from 'react-loader-spinner';
 // import AppLoader from './Components/AppLoader/AppLoader';
 import './App.css';
 import NotFound from './Components/NotFound/NotFound';
+import Search from './Components/Posts/Search/Search';
 
 
 export const data = [
@@ -237,8 +238,10 @@ class App extends Component {
               
               <Route path='/posts/post/:postId' component={SinglePage} />
 
-              <Route path='*' exact render={() => {return(<NotFound message='The Requested URL was Not Found on This Server'></NotFound>)}} />
+              <Route path='/posts/search' render={() => {return <Search />}} />
 
+              <Route path='*' exact render={() => {return(<NotFound message='The Requested URL was Not Found on This Server'></NotFound>)}} />
+              
             </Switch>
           </BrowserRouter>
         </div>
