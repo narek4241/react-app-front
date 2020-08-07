@@ -12,6 +12,8 @@
     }
         .profile-not-found-image img{
             width: 25%;
+            background-color: var(--sec-col1);
+            border-radius: 10px;
         }
     .profile-not-found-heading{
         text-transform: uppercase;

@@ -1,13 +1,11 @@
 import React from 'react';
 import Post from './Post/Post';
 import Filter from './Filter/Filter';
-import './Posts.css';
+import './Posts.scss';
 
 
 const Posts = ({data}) => {
-
     const posts = data.map((prod) => {
-        // console.log(prod.id)
         return(
             <Post 
                 // line below is 'opt' (avoids)
@@ -20,9 +18,6 @@ const Posts = ({data}) => {
             />
         );
     })
-
-    // const cars = data.filter(obj => obj.cat == 'transport');
-
     return(
         <div className="Posts">
             {posts}
@@ -31,11 +26,6 @@ const Posts = ({data}) => {
 }
 
 export default Posts;
-
-
-
-
-
 
 
 

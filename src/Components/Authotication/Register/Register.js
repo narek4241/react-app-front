@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { elemInOut } from '../../Home/Home';
+import { elemInOut } from '../../Homebar/Homebar';
 import Error from '../Error';
-import './Register.css';
+import './Register.scss';
 
 
 let registerexit = () => {
@@ -169,7 +169,7 @@ class Register extends Component {
                                     </div>
                                     <div className='opensignin'>
                                         Already have an account?
-                            <a id='login-from-register' onClick={() => elemInOut('login', 'register')} href='#'> Login Here</a>
+                                        <a id='login-from-register' onClick={() => elemInOut('login', 'register')} href='#'> Login Here</a>
                                     </div>
                                 </div>
                             </form>

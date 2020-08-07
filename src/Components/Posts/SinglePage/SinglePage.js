@@ -7,6 +7,7 @@ import { data } from '../../../App';
 import Posts from '../Posts';
 import './SinglePage.css'
 import App from '../../../App';
+import { Link } from 'react-router-dom';
 
 
 
@@ -26,6 +27,8 @@ class SinglePage extends Component {
             const fetchSinglePostData = await fetch(`http://localhost:3333/posts/post/${postId}`);
             const data = await fetchSinglePostData.json();
 
+            console.log('dataaaaaa');
+            console.log(data.userId._id);
             this.setState({
                 singlePostData: data,
                 title: data.title,
@@ -45,7 +48,8 @@ class SinglePage extends Component {
                 type: data.type,
                 firstname: data.userId.firstname,
                 lastname: data.userId.lastname,
-                contact: data.contact
+                contact: data.contact,
+                userId: data.userId._id
             })
             console.log(this.state.singlePostData);
         } catch (error) {
@@ -58,7 +62,7 @@ class SinglePage extends Component {
         this.fetchSinglePost();
     }
 
-    
+
     render() {
         return (
             <div className='SinglePage'>
@@ -86,6 +90,7 @@ class SinglePage extends Component {
                     contact={this.state.contact}
                     firstname={this.state.firstname}
                     lastname={this.state.lastname}
+                    userId={this.state.userId}
                 />
 
                 <Footer />
@@ -94,7 +99,7 @@ class SinglePage extends Component {
     }
 }
 
-const SinglePagePost = ({ title, price, currency, date, imgUrl, imgUrl2, imgUrl3, imgUrl4, imgUrl5, desc, cat, region, role, state, type, firstname, lastname, contact }) => {
+const SinglePagePost = ({ title, price, currency, date, imgUrl, imgUrl2, imgUrl3, imgUrl4, imgUrl5, desc, cat, region, role, state, type, firstname, lastname, contact, userId}) => {
     return (
         <div className='single-page'>
             <div className='single-page-left-side'>
@@ -131,12 +136,14 @@ const SinglePagePost = ({ title, price, currency, date, imgUrl, imgUrl2, imgUrl3
             </div>
             <div className='single-page-right-side'>
                 <div className='post-owner'>
-                    <div className='owner-info'>
-                        <div className='owner-avatar'>
-                            <img src={'https://rpg-cify0074508w.netdna-ssl.com/wp-content/uploads/2020/02/service_default_avatar_182956.png'} />
+                    <Link to={`/posts/user/${userId}`}>
+                        <div className='owner-info'>
+                            <div className='owner-avatar'>
+                                <img src={'https://rpg-cify0074508w.netdna-ssl.com/wp-content/uploads/2020/02/service_default_avatar_182956.png'} />
+                            </div>
+                            <div className='owner-userName'>{firstname} {lastname}</div>
                         </div>
-                        <div className='owner-userName'>{firstname} {lastname}</div>
-                    </div>
+                    </Link>
                     <div className='owner-contact'>
                         <div className='owner-call'>
                             <div className='owner-contactNumber'>Contact: {contact}</div>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Formik } from 'formik';
 import Posts from '../../Posts';
 import './Searchbar.scss'
+import { Link } from 'react-router-dom';
 
 
 class Searchbar extends Component {
@@ -9,8 +10,23 @@ class Searchbar extends Component {
         super(props)
     }
     state = {
-        query: '',
         fileredPostsData: []
+    }
+
+    fetchAllPosts = async()=>{
+        try {
+            const fetchAllPostsData = await fetch('http://localhost:3333/posts');
+            const data = await fetchAllPostsData.json()
+            this.setState({
+                fileredPostsData: data
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    componentDidMount(){
+        this.fetchAllPosts();
     }
 
     fetchFilteredPosts = async (value) => {
@@ -41,8 +57,10 @@ class Searchbar extends Component {
                     // validationSchema = {}
                     onSubmit={(values, { setSubmitting, resetForm }) => {
                         setSubmitting(true);
-                        // fetchFunccc()
+
                         this.fetchFilteredPosts(values.search);
+                        // window.location.href += `/${values.search}`
+                        // fetchFunccc()
 
                         // resetForm();
                         setSubmitting(false);
@@ -59,24 +77,38 @@ class Searchbar extends Component {
                         }
                     ) => {
                         return (
-                            <form onSubmit={handleSubmit}>
+                            // <form onSubmit={handleSubmit}>
+                            //     <input
+                            //         id={'search'} name={'search'} type={'text'} value={values.search}
+                            //         className={''} placeholder={'Search...'}
+                            //         onChange={handleChange} onBlur={handleBlur}
+                            //     ></input>
+                            //     <input
+                            //         id={'submit'} name={'submit'} type={'submit'} value={'Submit'}
+                            //         className={''} placeholder={'Submit...'}
+                            //     ></input>
+                            // </form>
+
+                            <form onSubmit={handleSubmit} action={`http://localhost:3000/posts/search/${values.search}`}>
                                 <input
                                     id={'search'} name={'search'} type={'text'} value={values.search}
                                     className={''} placeholder={'Search...'}
                                     onChange={handleChange} onBlur={handleBlur}
                                 ></input>
-
                                 <input
                                     id={'submit'} name={'submit'} type={'submit'} value={'Submit'}
                                     className={''} placeholder={'Submit...'}
                                 ></input>
                             </form>
+
+
+
                         )
                     }}
 
                 </Formik>
 
-                {/* <form action='http://localhost:3000/posts/search/actioon'>
+                {/* <form>
                     <input
                         id={'search'} name={'search'} type={'text'}
                         className={''} placeholder={'Search...'}
@@ -87,7 +119,8 @@ class Searchbar extends Component {
                         className={''} placeholder={'Submit...'}
                     ></input>
                 </form> */}
-                <Posts data={this.state.fileredPostsData}/>
+
+                <Posts data={this.state.fileredPostsData} />
 
             </div>
         )

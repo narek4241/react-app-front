@@ -8,23 +8,6 @@ import Footer from '../Footer/Footer';
 import './Home.css';
 
 
-export const elemInOut = (elemIn, elemOut) => {
-    document.getElementById(elemOut).style.animation = '';
-    // try 'useState' here
-    // toBeUpdated later
-    // document.getElementById('elemOut').style.animation = `${elemOut}-out 1s forwards 1`;
-    document.getElementById(elemIn).style.animation = `${elemIn}-in 1s forwards 1`;
-}
-
-export const elemOut = (elemOut) => {
-    document.getElementById(elemOut).style.animation = `${elemOut}-out 1s forwards 1`;
-}
-
-// export const elemInOrOut = (elem, InOrOut) => {
-//     document.getElementById(elem).style.animation = `${elem}-${InOrOut} 1s forwards 1`;
-// }
-
-
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -59,9 +42,29 @@ class Home extends Component {
 
                 <Homebar />
 
-                <Categories />
-
+                <div style={{width: '100%',height: '100px'}}></div>
                 <Posts data={this.state.postsData}/>
+                <div style={{width: '100%',height: '100px'}}></div>
+
+
+                {/* #task create comp. which gets 'cat' prop, returns headlined content, with posts in theme */}
+                {/* <div style={{width: '100%',height: '100px'}}></div>
+                <Posts data={this.state.postsData}/>
+                <div style={{width: '100%',height: '100px'}}></div>
+                <Posts data={this.state.postsData}/>
+                <div style={{width: '100%',height: '100px'}}></div>
+                <Posts data={this.state.postsData}/> */}
+
+                
+                {/* <Posts data={this.state.postsData}/>
+                <Posts data={this.state.postsData}/>
+                <Posts data={this.state.postsData}/>
+                <Posts data={this.state.postsData}/>
+                <Posts data={this.state.postsData}/>
+                <Posts data={this.state.postsData}/>
+                <Posts data={this.state.postsData}/> */}
+
+                <Categories />
 
                 <Footer />
             </div>
@@ -70,12 +73,6 @@ class Home extends Component {
 }
 
 export default Home;
-
-
-
-
-
-
 
 
 

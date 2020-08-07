@@ -1,5 +1,5 @@
 import React from 'react';
-import './Categories.css'
+import './Categories.scss'
 import '../../../images/down-arrow.png';
 
 
@@ -17,34 +17,23 @@ const Categories = () => {
                 <div className='cats-options-content'>
                     <div>
                         <div>Vehicles</div>
-                        <div>
-                            {/* <img src="../../../images/down-arrow.png" /> */}
-                            ↓
-                        </div>
+                        <div>↓</div>
                     </div>
                     <div>
                         <div>Phones, Tablels</div>
-                        <div>
-                            ↓
-                        </div>
+                        <div>↓</div>
                     </div>
                     <div>
                         <div>Electronics</div>
-                        <div>
-                            ↓
-                        </div>
+                        <div>↓</div>
                     </div>
                     <div>
                         <div>Real Estate</div>
-                        <div>
-                            ↓
-                        </div>
+                        <div>↓</div>
                     </div>
                     <div>
                         <div>Everything Else</div>
-                        <div>
-                            ↓
-                        </div>
+                        <div>↓</div>
                     </div>
                 </div>
             </div>

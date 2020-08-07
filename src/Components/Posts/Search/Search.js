@@ -14,7 +14,7 @@ const Search = () => {
 
             <Searchbar />
 
-            <SearchResults />
+            {/* <SearchResults />    */}
 
             <Footer />
         </div>

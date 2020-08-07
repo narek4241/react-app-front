@@ -1,0 +1,292 @@
+@mixin flexCenter($direction: row) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+.login-a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+$register-height: 46.5vh !global; 
+
+
+.Register{
+    width: 100%;
+    height: 0vh;
+    background-color: var(--home-bg);
+    @include flexCenter(column);
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    .register-intro, .register-data{
+        box-sizing: border-box;
+    }
+    .register-intro{
+        position: absolute;
+    }
+    .register-data{
+        width: 90%;
+        height: 100%;
+        @include flexCenter(column);
+        .register-form-firstname-lastname, .register-form-email-confirmemail, .register-form-pass-confirmpass, .register-hr, .register-links, .register-errors{
+            width: 45%;
+            height: 16%;
+            @include flexCenter();
+            justify-content: space-evenly;
+        }
+        .register-errors{
+            display: flex;
+            flex-direction: column;
+            width: 42.5%;
+            height: 15%;
+            text-transform: capitalize;
+            overflow-y: auto;
+        }
+        input{
+            width: 46%;
+            height: 75%;
+            font-size: 14px;
+            box-sizing: border-box;
+            border: 0;
+            outline: none;
+            padding: 0px 15px;
+            background-color: var(--input-bg);
+        }
+        .register-form-submit{
+            width: 5%;
+            height: 12%;
+            position: absolute;
+            @include flexCenter();
+            left: 69.15%;
+            top: 60%;
+            top: 57%;
+            input[type=submit]{
+                width: 100%;
+                height: 100%;
+                background:var(--sec-col1) url(../../../images/login-submit.png) no-repeat center ;
+                background-size: 40%;
+                cursor: pointer;
+            }
+            .register-submit-triangle-dot{
+                border-top: 8px solid transparent;
+                border-bottom: 8px solid transparent;
+                border-right: 15px solid var(--sec-col1);
+                position: absolute;
+                top: 35%;
+                left: -10%;
+            }
+        }
+        .register-hr{
+            width: 43%;
+            height: 5%;
+            hr{
+                width: 99%;
+                border: 0; border-top: 1px solid #494949;
+            }
+        }
+        .register-links{
+            display: flex;
+            justify-content: flex-start;
+            a{
+                text-decoration: none;
+            }
+            .login-form-terms{
+                width: 100%;
+                height: 10%;
+                position: absolute;
+                top: 67%;
+                top: 73%;
+                left: 30.65%;
+                @include flexCenter();
+                justify-content: flex-start;
+                input[type=checkbox]{
+                    width: 1%;
+                }
+                p{
+                    margin-left: 5px;
+                    width: 25%;
+                    height: 100%; 
+                    @include flexCenter();
+                    justify-content: flex-start;
+                    font-size: 14px;
+                    color: var(--sec-col2);
+                    a{
+                        cursor: pointer;
+                        color: var(--sec-col1);
+                    }
+                }
+            }  
+            .opensignin{
+                margin-left: 2.5%;
+                font-size: 14px;
+                position: absolute;
+                top: 77%;
+                top: 83%;
+                left: 28.35%;
+                color: var(--sec-col2);
+                a{
+                    color: #fff;
+                    color: var(--sec-col1);
+                }
+            }
+        }
+    }
+    .register-exit{
+        width: 35px;
+        position: absolute;
+        top: 55px;
+        right: 55px;
+        z-index: 100;
+        cursor: pointer;
+        img{
+            width: 100%;
+        }
+    }
+}
+   
+    @keyframes register-in{
+        0%{height: 0;}
+        100%{height: $register-height;}
+    }
+    @keyframes register-out{
+        0%{height: $register-height;}
+        100%{height: 0;}
+    }
+
+@media (max-width: 1200px){
+    .Register{
+        .register-data{
+            .register-form-firstname-lastname, .register-form-email-confirmemail, .register-form-pass-confirmpass, .register-hr, .register-links, .register-errors{
+                width: 65%;
+            }
+            input{
+                width: 46%;
+                height: 75%;
+                font-size: 14px;
+                box-sizing: border-box;
+                border: 0;
+                outline: none;
+                padding: 0px 15px;
+                background-color: var(--input-bg);
+            }
+
+            .register-errors{
+                width: 61%;
+            }
+            .register-form-submit{
+                left: 77.5%;
+            }
+            .register-links{
+                justify-content: center;
+                justify-content: flex-start;
+                .login-form-terms{
+                    margin-left: -9%;
+                    p{
+                        width: 100%;
+                    }
+                }
+                .opensignin{
+                    margin-left: -6.25%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px){
+    $register-height: calc(100vh - 13.75vh);
+    .Register{
+        .register-data{
+            // margin-bottom: 10%;
+            .register-form-firstname-lastname, .register-form-email-confirmemail, .register-form-pass-confirmpass, .register-hr, .register-links, .register-errors{
+                height: 100%;
+                flex-direction: column;
+                input{
+                    height: 40%;
+                    width: 100%;
+                }
+            }
+            .register-form-submit{
+                width: 10%;
+                height: 7%;
+                top: 62.75%;
+                left: 79.25%;
+            }
+            .register-hr{
+                height: 25%;
+            }
+            .register-links{
+                margin-top: 7.5%;
+            }
+            
+        }
+    }
+
+    @keyframes register-in{
+        0%{height: 0;}
+        100%{height: $register-height;}
+    }
+    @keyframes register-out{
+        0%{height: $register-height;}
+        100%{height: 0;}
+    }
+}
+
+@media (max-width: 481px){
+    $register-height: calc(100vh);
+    .Register{
+        .register-data{
+            .register-form-submit{
+                width: 14%;
+                height: 7%;
+                top: 65.25%;
+                left: 79.25%;
+                input[type=submit]{
+                    background-size: 50%;
+                }
+            }
+        }
+        .register-exit{
+            top: 25px;
+            right: 25px;
+        }
+    }
+
+    @keyframes register-in{
+        0%{height: 0;}
+        100%{height: $register-height;}
+    }
+    @keyframes register-out{
+        0%{height: $register-height;}
+        100%{height: 0;}
+    }
+}
+
+
+@media (max-width: 1000px) and (min-width: 500px) and (min-height: 300px) and (max-height: 500px){
+    $register-height: calc(100vh);
+    // #lb #opt rotated-phone view 'submit' doesnt fit
+    .Register{
+        .register-data{
+            .register-form-submit{
+                width: 10%;
+                input[type=submit]{
+                    background-size: 40%;
+                }
+            }
+        }
+    }
+    @keyframes register-in{
+        0%{height: 0;}
+        100%{height: $register-height;}
+    }
+    @keyframes register-out{
+        0%{height: $register-height;}
+        100%{height: 0;}
+    }
+}
+
+

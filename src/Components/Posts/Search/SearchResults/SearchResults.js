@@ -10,32 +10,31 @@ class SearchResults extends Component {
         postsData: []
     }
 
-    fetchPosts = async () => {
+    fetchFilteredPosts = async (value) => {
         try {
-            const fetchPosts = await fetch('http://localhost:3333/posts');
-            const data = await fetchPosts.json();
+            const fetchFilteredPostsData = await fetch(`http://localhost:3333/posts/search/${value}`);
+            const data = await fetchFilteredPostsData.json();
 
             this.setState({
-                postsData: data
+                fileredPostsData: data
             })
+
         } catch (error) {
             console.log(error);
         }
     }
 
-    componentDidMount(){
-        this.fetchPosts();
-    }
-
     render() {
         return (
             <div className='SearchResults'>
-                <h1>Search Result Posts</h1>
-                {/* <Posts data={this.state.postsData} /> */}
+                {/* tobeAdded #later  */}
+                {/* <Posts data={this.state.postsData}/> */}
             </div>
         )
     }
 }
+
+
 
 
 export default SearchResults;

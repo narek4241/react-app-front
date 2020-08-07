@@ -1,0 +1,279 @@
+@mixin flexCenter($direction: row){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+.homebar-a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+// $homebar-height: 13.75vh;
+
+.homebar{
+    width: 100%;
+    // height: $homebar-height;
+    height: var(--homebar-height);
+    min-height: 110px;
+    overflow: hidden;
+}
+    .homebar-top{
+        width: 100%;
+        background-color: #000;
+        color: #fff;
+        // height: 45px;
+        height: 35%;
+        display: flex;
+        justify-content: flex-end;
+        position: relative;
+    }
+        .homebar-authotication{
+            width: 100%;
+            @include flexCenter();
+            justify-content: flex-end;
+            a{
+                @extend .homebar-a;
+                padding: 15px;
+            }
+        }
+        // add extend
+        .side-nav2{
+            @extend .side-nav;
+            width: 0%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            a{
+                @extend .homebar-a;
+                color: #fff;
+                font-size: 22px;
+                opacity: 0;
+            }
+        }
+        // add extend
+        .logo2{
+            @extend .logo;
+            padding-top: 1%;
+            width: 0%;
+            overflow: hidden;
+            a{
+                img{
+                    width: 0;
+                    max-width: 185px;
+                    filter: grayscale(50%);
+                }
+            }
+        }
+        
+    .homebar-content{
+        width: 100%;
+        // height: 85px;
+        height: 65%;
+        @include flexCenter();
+        justify-content: space-between;
+        background-color: #fff;
+        border-bottom: 2px solid;
+        border-image: radial-gradient(rgb(0, 184, 230), rgb(128, 128, 128)) 1;;
+    }
+        .homebar-lf-side{
+            width: 30%;
+            height: 100%;
+        }   
+            .logo{
+                width: 100%;
+                height: 100%;
+                @include flexCenter();
+                justify-content: flex-start;
+                padding-left: 10%;
+                overflow: hidden;
+                a{
+                    img{
+                        max-width: 185px;
+                        filter: grayscale(50%);
+                    }
+                }
+            }
+
+        .homebar-rg-side{
+            width: 70%;
+            height: 100%;
+            @include flexCenter();
+            justify-content: flex-end;
+        }
+            .search, .add-announcement, .side-nav{
+                height: 100%;
+                @include flexCenter()
+            }
+            .search{
+                width: 20%;
+                height: 50%;
+                @include flexCenter();
+                a{
+                    @extend .homebar-a;
+                    color: #000;
+                    @include flexCenter();
+                    justify-content: space-between;
+                    img{
+                        width: 40%;
+                        max-width: 45px;
+                    }
+                    p{
+                        width: 50%;
+                    }
+                }
+            }
+            .add-announcement{
+                width: 25%;
+                a{
+                    @extend .homebar-a;
+                    @include flexCenter();
+                    background-color: black;
+                    width: 95%;
+                    height: 50%;
+                    border-radius: 15px;
+                    cursor: pointer;
+                }
+            }
+            .side-nav{
+                width: 7.5%;
+                a{
+                    @extend .homebar-a;
+                    color: #000;
+                    font-size: 22px;
+                }
+            }
+
+
+@media (max-width: 1200px){
+    .homebar{
+        .homebar-content{
+            position: relative;
+            .homebar-lf-side{
+                width: 30%;
+                width: 100%;
+            }
+            .homebar-rg-side{
+                width: 60%;
+                width: 100%;
+                position: absolute;
+                right: 0;
+            }
+            
+        }
+    }
+}
+
+@media (max-width: 900px){
+    .homebar{
+        .homebar-content{
+            .homebar-rg-side{
+                .add-announcement{
+                    width: 35%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px){
+    .homebar{
+        .homebar-top{
+            height: 50%;
+            justify-content: space-between;
+            background-color: #fff;
+            .side-nav2{
+                width: 20%;
+                position: relative;
+                // disabling
+                width: 0;
+                display: none;
+                a{
+                    opacity: 1;
+                }
+            }
+            .homebar-authotication{
+                color: #000;
+                width: 50%;
+                // disabling
+                // width: 0;
+                // display: none;
+                a{
+                    color: #000;
+                }
+            }
+            .logo2{
+                width: 50%;
+                height: 100%;
+                @include flexCenter();
+                padding-left: 0%;
+                left: 0;
+                background-color: #fff;
+                a{
+                    img{
+                        width: 100%;
+                        max-width: 165px;
+                    }
+                }
+            }
+        }
+        .homebar-content{
+            height: 50%;
+            flex-direction: column;
+            .homebar-lf-side{
+                height: 0;
+            }
+            .homebar-rg-side{
+                height: 100%;
+                @include flexCenter();
+                position: relative;
+                right: 0;
+                .search{
+                    width: 50%;
+                    img{
+                        max-width: 35px;
+                    }
+                }
+                .add-announcement{
+                    width: 50%;
+                    font-size: 15px;
+                }
+                .side-nav{
+                    width: 0%;
+                    height: 0;
+                    opacity: 0;
+                    a{width: 0;}
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 358px){
+    .homebar{
+        .homebar-top{
+            .logo2{
+                padding-top: 2%;
+            }
+            .homebar-authotication{
+                a{
+                    font-size: 14px;
+                    padding: 10px;
+                }
+            }
+        }
+        .homebar-content{
+            .add-announcement{
+                a{
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+

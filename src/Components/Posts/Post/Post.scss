@@ -1,0 +1,98 @@
+@mixin flexCenter($direction: row){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+.homebar-a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.Post{
+    min-width: 175px; 
+    width: 200px;
+    height: 275px; 
+    padding: 0px 10px;
+    overflow: hidden;
+    background-color: var(--post-bg);
+    a{
+        text-decoration: none;
+        color: #000;
+    }
+    &:hover{
+        // box-shadow: 0 11px 17px 0 rgba(0,0,0,.15);
+        z-index: 100;
+        transition: 400;
+        cursor: pointer;
+        a{
+            color: var(--sec-col1);
+        }
+        .img{
+            img{
+                filter: brightness(1.075);
+            }
+        }
+    }
+    .img{
+        height: 75%;
+        @include flexCenter();
+        object-fit: contain;
+        img{
+            // v1 view
+            // width: 85%;
+            // max-height: 75%;
+            // height: 65%;
+            // object-fit: contain;
+
+            // v2 view (list.am)
+            width: 174px;
+            height: 165px;
+            border-radius: 6px;
+            object-fit: cover;
+            @include flexCenter();
+        }
+    }
+    .title{
+        height: 20%;
+        height: 15%;
+        p{
+            // width: 100%;
+            width: 174px;
+            margin: 0;
+            padding: 6px 0px 6px 6px;
+            @include flexCenter();
+            justify-content: flex-start;
+        }
+    }
+    .price{
+        height: 15%;
+        height: 10%;
+        p{
+            width: 100%;
+            margin: 0;
+            padding: 6px 0px 6px 8px;
+            color: #222;
+            @include flexCenter();
+            justify-content: flex-start;
+            font: {
+                size: 16px;
+                weight: 700;
+            }
+        }
+    }
+}
+   
+@media (max-width: 481px){
+    .Post{
+        min-width: 15px; 
+        width: 180px;
+
+        width: 50%;
+        padding: 0px 0px;
+    }
+}
+    
+
+

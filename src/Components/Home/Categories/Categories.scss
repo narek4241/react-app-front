@@ -5,13 +5,14 @@
 .home-cats{
     width: 100%;
     /* 100vh - homebar-height */
-    height: calc(100vh - 80px);
+    height: calc(100vh - var(--homebar-height));
     background-color: darkgrey;
     background-color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* background-image: url('https://images8.alphacoders.com/712/712496.jpg'); */
+    background-image: url('https://images8.alphacoders.com/712/712496.jpg'); 
+    background-image: url('https://images.wallpapersden.com/image/download/iphone-11-pro-max_66782_3840x2160.jpg');
     background-image: url('https://media.idownloadblog.com/wp-content/uploads/2019/11/winter-wallpaper-iPhone-11-Pro-Max-splash-compress.jpeg');
     background-position:50%;
     background-size: contain;

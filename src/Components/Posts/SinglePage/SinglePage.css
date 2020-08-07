@@ -121,6 +121,10 @@
                 .post-owner:hover{
                     border-radius: 30px;
                 }
+                .post-owner a{
+                    width: 100%;
+                    display: flex;
+                }
                 .owner-info, .owner-contact{
                     width: 100%;
                     display: flex;

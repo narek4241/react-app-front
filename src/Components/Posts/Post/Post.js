@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Post.css';
+import './Post.scss';
 
 
 const Post = ({id, imgUrl, price,currency, title}) => {
@@ -10,11 +10,11 @@ const Post = ({id, imgUrl, price,currency, title}) => {
                 <div className="img">
                     <img className="post_img" alt="img" src={imgUrl} />
                 </div>
-                <div className="title">
-                    <p>{title}</p>
-                </div>
                 <div className="price">
                     <p style={{textTransform:"uppercase"}}>{price} {currency}</p>
+                </div>
+                <div className="title">
+                    <p>{title}</p>
                 </div>
             </Link>
 
@@ -23,16 +23,6 @@ const Post = ({id, imgUrl, price,currency, title}) => {
 }
 
 export default Post;
-
-
-
-
-
-
-
-
-
-
 
 
 

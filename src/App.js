@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Home from './Components/Home/Home';
-import Posts from './Components/Posts/Posts';
-import Footer from './Components/Footer/Footer';
 import Profile from './Components/Profile/Profile';
 import AddPost from './Components/Posts/AddPost/AddPost';
 import SinglePage from './Components/Posts/SinglePage/SinglePage';
@@ -11,6 +9,7 @@ import Loader from 'react-loader-spinner';
 import './App.css';
 import NotFound from './Components/NotFound/NotFound';
 import Search from './Components/Posts/Search/Search';
+import User from './Components/Posts/User/User';
 
 
 export const data = [
@@ -240,6 +239,8 @@ class App extends Component {
 
               <Route path='/posts/search' render={() => {return <Search />}} />
 
+              <Route path='/posts/user/:userId' component={User} />
+
               <Route path='*' exact render={() => {return(<NotFound message='The Requested URL was Not Found on This Server'></NotFound>)}} />
               
             </Switch>
@@ -252,8 +253,6 @@ class App extends Component {
 }
 
 export default App;
-
-
 
 
 

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { Link, withRouter} from 'react-router-dom';
-import { elemInOut } from '../../Home/Home';
-import { elemOut } from '../../Home/Home';
+import { Link, withRouter } from 'react-router-dom';
+import { elemInOut } from '../../Homebar/Homebar';
+import { elemOut } from '../../Homebar/Homebar';
 import Error from '../Error';
-import './Login.css';
+import './Login.scss';
 
 
 let loginexit = () => {
@@ -76,7 +76,8 @@ class Login extends Component {
                             this.fetchLogin(values);
                             resetForm();
                             setSubmitting(false);
-                            this.props.history.push('/auth/profile');   
+                            this.props.history.push('/auth/profile');
+                            // elemInOut('register', 'login');
                             elemOut('login');
                         }, 500);
                     }}
@@ -140,7 +141,7 @@ class Login extends Component {
                                 <div className="login-links">
                                     <div className='opensignup'>
                                         Don't have a profile?
-                                    <Link id='register-from-login' to='#' onClick={() => elemInOut('register', 'login')}> Register Here</Link>
+                                        <Link id='register-from-login' to='#' onClick={() => elemInOut('register', 'login')}> Register Here</Link>
                                     </div>
                                     <div className='openresetpass'>
                                         <Link to='' style={{ cursor: "not-allowed" }}>Forgot Password?</Link>

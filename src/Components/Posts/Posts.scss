@@ -1,0 +1,29 @@
+@mixin flexCenter($direction: row){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+.Posts{
+    // width: 65%;
+    width: 1200px;
+    height: auto;
+    background-color: var(--posts-bg);
+    @include flexCenter();
+    align-items: flex-start;
+    flex-wrap: wrap;
+    z-index: 1;
+}
+
+@media (max-width: 1400px){
+    .Posts{
+        width: 93.5%;
+    }
+}
+@media (max-width: 481px){
+    .Posts{
+        width: 100%;
+    }
+}
+
