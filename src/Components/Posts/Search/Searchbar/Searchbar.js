@@ -3,6 +3,8 @@ import { Formik } from 'formik';
 import Posts from '../../Posts';
 import './Searchbar.scss'
 import { Link } from 'react-router-dom';
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 
 
 class Searchbar extends Component {
@@ -13,7 +15,7 @@ class Searchbar extends Component {
         fileredPostsData: []
     }
 
-    fetchAllPosts = async()=>{
+    fetchAllPosts = async () => {
         try {
             const fetchAllPostsData = await fetch('http://localhost:3333/posts');
             const data = await fetchAllPostsData.json()
@@ -25,7 +27,7 @@ class Searchbar extends Component {
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.fetchAllPosts();
     }
 
@@ -77,19 +79,7 @@ class Searchbar extends Component {
                         }
                     ) => {
                         return (
-                            // <form onSubmit={handleSubmit}>
-                            //     <input
-                            //         id={'search'} name={'search'} type={'text'} value={values.search}
-                            //         className={''} placeholder={'Search...'}
-                            //         onChange={handleChange} onBlur={handleBlur}
-                            //     ></input>
-                            //     <input
-                            //         id={'submit'} name={'submit'} type={'submit'} value={'Submit'}
-                            //         className={''} placeholder={'Submit...'}
-                            //     ></input>
-                            // </form>
-
-                            <form onSubmit={handleSubmit} action={`http://localhost:3000/posts/search/${values.search}`}>
+                            <form onSubmit={handleSubmit}>
                                 <input
                                     id={'search'} name={'search'} type={'text'} value={values.search}
                                     className={''} placeholder={'Search...'}
@@ -101,8 +91,32 @@ class Searchbar extends Component {
                                 ></input>
                             </form>
 
-
-
+                            // #growth #change to 'material-ui textfield (pros = modernView, 'opions)
+                            // <form onSubmit={handleSubmit} action={`http://localhost:3000/posts/search/${values.search}`}>
+                            //     <Autocomplete
+                            //         freeSolo
+                            //         id="free-solo-2-demo"
+                            //         disableClearable
+                            //         // options={top100Films.map((option) => option.title)}
+                            //         options={['mac', 'iphone', 'petros', 'poghos']}
+                            //         renderInput={(values) => (
+                            //             <form onSubmit={handleSubmit} action={`http://localhost:3000/posts/search/${values.search}`}>
+                            //                 <TextField
+                            //                     {...values}
+                            //                     label="Search input"
+                            //                     margin="normal"
+                            //                     variant="outlined"
+                            //                     value={values.search}
+                            //                     InputProps={{ ...values.InputProps, type: 'search' }}
+                            //                 />
+                            //                 <input
+                            //                     id={'submit'} name={'submit'} type={'submit'} value={'Submit'}
+                            //                     className={''} placeholder={'Submit...'} onClick={() => {alert('clicked')}}
+                            //                 ></input>
+                            //             </form>
+                            //         )}
+                            //     />
+                            // </form>
                         )
                     }}
 

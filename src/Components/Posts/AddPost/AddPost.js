@@ -8,15 +8,19 @@ import Footer from '../../Footer/Footer';
 import Error from '../../Authotication/Error';
 import './AddPost.css';
 import NotFound from '../../NotFound/NotFound';
+import { Link, withRouter } from 'react-router-dom';
 
 
-const phoneRegExp = /^[+374]{4}[0-9]{8}/;
-const priceExp = /^[1-9][0-9]*/;
+
+const phoneRegExp = /^[+374]{4}[0-9]{8}$/;
+const priceRegExp = /^[1-9][0-9]*/;
+const urlRegExp = /^(http)(s?)(:\/\/)/;
 
 
 const validation = Yup.object().shape(
     {
         cat: Yup.string()
+            .required('Category is required')
         ,
         region: Yup.string()
         ,
@@ -28,49 +32,53 @@ const validation = Yup.object().shape(
         ,
 
         price: Yup.string()
-            .max(15, 'Price max length is 30')
-            .matches(priceExp, 'Must be a valid Price')
+            .max(15, 'Price max. length is 30')
+            .matches(priceRegExp, 'Must be a valid Price')
         ,
         currency: Yup.string()
         ,
 
         title: Yup.string()
             .required('Title is required')
-            .min(2, 'Title min length is 2')
-            .max(100, 'Title max length is 2')
+            .min(2, 'Title min. length is 2')
+            .max(100, 'Title max. length is 2')
         ,
 
         desc: Yup.string()
-            .min(2, 'Desc min length is 2')
-            .max(5000, 'Desc max length is 5000')
+            .min(2, 'Description min. length is 2')
+            .max(5000, 'Description max. length is 5000')
         ,
         imgUrl: Yup.string()
-            .min(2, 'ImgUrl min length is 2')
-            .max(5000, 'ImgUrl max length is 5000')
+            .min(2, 'Image Url min. length is 2')
+            .max(5000, 'Image Url max. length is 5000')
+            .matches(urlRegExp, 'Must be a valid Url (ImgUrl 1)')
         ,
         imgUrl2: Yup.string()
-            .min(2, 'ImgUrl2 min length is 2')
-            .max(5000, 'ImgUrl2 max length is 5000')
+            .min(2, 'Image Url 2 min. length is 2')
+            .max(5000, 'Image Url 2 max. length is 5000')
+            .matches(urlRegExp, 'Must be a valid Url (ImgUrl 2)')
         ,
         imgUrl3: Yup.string()
-            .min(2, 'ImgUrl3 min length is 2')
-            .max(5000, 'ImgUrl3 max length is 5000')
+            .min(2, 'Image Url 3 min. length is 2')
+            .max(5000, 'Image Url 3 max. length is 5000')
+            .matches(urlRegExp, 'Must be a valid Url (ImgUrl 3)')
         ,
         imgUrl4: Yup.string()
-            .min(2, 'ImgUrl4 min length is 2')
-            .max(5000, 'ImgUrl4 max length is 5000')
+            .min(2, 'Image Url 4 min. length is 2')
+            .max(5000, 'Image Url 4 max. length is 5000')
+            .matches(urlRegExp, 'Must be a valid Url (ImgUrl 4)')
         ,
         imgUrl5: Yup.string()
-            .min(2, 'ImgUrl5 min length is 2')
-            .max(5000, 'ImgUrl5 max length is 5000')
+            .min(2, 'Image Url 5 min. length is 2')
+            .max(5000, 'Image Url 5 max. length is 5000')
+            .matches(urlRegExp, 'Must be a valid Url (ImgUrl 5)')
         ,
 
         role: Yup.string()
         ,
-
         contact: Yup.string()
             .required('Phone Number is required')
-            .matches(phoneRegExp, 'Must be a valid Phone Number')
+            .matches(phoneRegExp, 'Must be a valid Phone Number (+374CCNNNNNN)')
         ,
     }
 );
@@ -83,7 +91,6 @@ class AddPost extends Component {
     // https://agile-temple-62197.herokuapp.com/posts/add
     fetchAddPost = async (value) => {
 
-        // console.log(value, JSON.stringify(value));
         const fetchAddPostData = await fetch('http://localhost:3333/posts/add',
             {
                 method: "POST",
@@ -96,6 +103,10 @@ class AddPost extends Component {
 
 
         const data = await fetchAddPostData.json();
+    }
+
+    componentDidMount = () => {
+        window.scrollTo(0, 0);
     }
 
     render() {
@@ -119,8 +130,9 @@ class AddPost extends Component {
                         onSubmit={(values, { setSubmitting, resetForm }) => {
                             setSubmitting(true);
                             this.fetchAddPost(values);
+                            // #remind #lb #logs 'warningError cant'perform ..to fix ..useEffect..'
+                            this.props.history.push('/auth/profile');
                             resetForm();
-
                             setSubmitting(false);
                         }}
                     >
@@ -139,18 +151,19 @@ class AddPost extends Component {
                                     onSubmit={handleSubmit}
                                 >
                                     <div className='add-post-errors'>
-                                        <Error touch={touched.price} error={errors.price} />
-                                        <Error touch={touched.title} error={errors.title} />
-                                        <Error touch={touched.desc} error={errors.desc} />
-                                        <Error touch={touched.imgUrl} error={errors.imgUrl} />
-                                        <Error touch={touched.imgUrl2} error={errors.imgUrl2} />
-                                        <Error touch={touched.imgUrl3} error={errors.imgUrl3} />
-                                        <Error touch={touched.imgUrl4} error={errors.imgUrl4} />
-                                        <Error touch={touched.imgUrl5} error={errors.imgUrl5} />
-                                        <Error touch={touched.contact} error={errors.contact} />
+                                        {errors.cat ? <Error touch={touched.cat} error={errors.cat} /> : null}
+                                        {errors.price ? <Error touch={touched.price} error={errors.price} /> : null}
+                                        {errors.title ? <Error touch={touched.title} error={errors.title} /> : null}
+                                        {errors.desc ? <Error touch={touched.desc} error={errors.desc} /> : null}
+                                        {errors.imgUrl ? <Error touch={touched.imgUrl} error={errors.imgUrl} /> : null}
+                                        {errors.imgUrl2 ? <Error touch={touched.imgUrl2} error={errors.imgUrl2} /> : null}
+                                        {errors.imgUrl3 ? <Error touch={touched.imgUrl3} error={errors.imgUrl3} /> : null}
+                                        {errors.imgUrl4 ? <Error touch={touched.imgUrl4} error={errors.imgUrl4} /> : null}
+                                        {errors.imgUrl5 ? <Error touch={touched.imgUrl5} error={errors.imgUrl5} /> : null}
+                                        {errors.contact ? <Error touch={touched.contact} error={errors.contact} /> : null}
                                     </div>
                                     <div className="add-post-cat">
-                                        <label>Category</label>
+                                        <label>Category*:</label>
                                         <Field name="cat" as="select" onChange={handleChange} onBlur={handleBlur} className="add-post-field" >
                                             <option defaultValue>Խնդրում ենք ընտրել</option>
                                             <optgroup label="Marketplace">
@@ -165,13 +178,13 @@ class AddPost extends Component {
                                                 <option value="tools-and-materials">Գործիքներ և նյութեր</option>
                                                 <option value="pets-and-plants">Կենդանիներ և բույսեր</option>
                                                 <option value="food-and-beverages">Մթերք և ըմպելիքներ</option>
-                                                <option value="everything-else">Այլ</option>
+                                                <option value="other">Այլ</option>
                                             </optgroup>
                                         </Field>
                                     </div>
 
                                     <div className="add-post-region">
-                                        <label>Region</label>
+                                        <label>Region:</label>
                                         <div>
                                             <Field name="region" as="select" onChange={handleChange} onBlur={handleBlur} className="add-post-field">
                                                 <option defaultValue>Խնդրում ենք ընտրել</option>
@@ -313,7 +326,7 @@ class AddPost extends Component {
                                     </div>
 
                                     <div className="add-post-state">
-                                        <label>State</label>
+                                        <label>State:</label>
                                         <Field style={{ width: '100%', maxWidth: '300px', height: '50px' }} name="state" as="select" className="add-post-field">
                                             <option value="">Please Select</option>
                                             <option value="new">New</option>
@@ -357,31 +370,31 @@ class AddPost extends Component {
                                             <label>ImgUrl(s):</label>
                                             <input
                                                 id={'imgUrl'} name={'imgUrl'} type={'text'} value={values.imgUrl}
-                                                className={''} placeholder={'ImgUrl...'}
+                                                className={''} placeholder={'Image Url ...'}
                                                 onChange={handleChange} onBlur={handleBlur}
                                             ></input>
                                         </div>
                                         <div>
                                             <input
                                                 id={'imgUrl2'} name={'imgUrl2'} type={'text'} value={values.imgUrl2}
-                                                className={''} placeholder={'ImgUrl2 (optional)'}
+                                                className={''} placeholder={'Image Url 2 (optional)'}
                                                 onChange={handleChange} onBlur={handleBlur}
                                             ></input>
                                             <input
                                                 id={'imgUrl3'} name={'imgUrl3'} type={'text'} value={values.imgUrl3}
-                                                className={''} placeholder={'ImgUrl3 (optional)'}
+                                                className={''} placeholder={'Image Url 3 (optional)'}
                                                 onChange={handleChange} onBlur={handleBlur}
                                             ></input>
                                         </div>
                                         <div>
                                             <input
                                                 id={'imgUrl4'} name={'imgUrl4'} type={'text'} value={values.imgUrl4}
-                                                className={''} placeholder={'ImgUrl4 (optional)'}
+                                                className={''} placeholder={'Image Url 4 (optional)'}
                                                 onChange={handleChange} onBlur={handleBlur}
                                             ></input>
                                             <input
                                                 id={'imgUrl5'} name={'imgUrl5'} type={'text'} value={values.imgUrl5}
-                                                className={''} placeholder={'ImgUrl5 (optional)'}
+                                                className={''} placeholder={'Image Url 5 (optional)'}
                                                 onChange={handleChange} onBlur={handleBlur}
                                             ></input>
                                         </div>
@@ -405,7 +418,7 @@ class AddPost extends Component {
                                     </div>
 
                                     <div className="add-post-contact">
-                                        <label>Contact:</label>
+                                        <label>Contact*:</label>
                                         <input
                                             id={'contact'} name={'contact'} type={'text'} value={values.contact}
                                             className={''} placeholder={'+374CCNNNNNN'}
@@ -416,9 +429,10 @@ class AddPost extends Component {
                                     <div className="add-post-submit">
                                         <input
                                             id={'submit'} name={'submit'} type={'submit'} value={''}
-                                            className={''} placeholder={'Submit...'}
+                                            className={''} placeholder={'Submit...'} onClick={() => { window.scrollTo(0, 0); }}
                                         ></input>
                                         <div className='add-post-submit-triangle-dot'></div>
+
                                     </div>
                                 </form>
                             )
@@ -433,15 +447,4 @@ class AddPost extends Component {
     }
 }
 
-export default AddPost;
-
-
-
-
-
-
-
-
-
-
-
+export default withRouter(AddPost);

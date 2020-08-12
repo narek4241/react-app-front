@@ -3,11 +3,12 @@ import Login from '../../Authotication/Login/Login';
 import Register from '../../Authotication/Register/Register';
 import Homebar from '../../Homebar/Homebar';
 import Footer from '../../Footer/Footer';
-import { data } from '../../../App';
 import Posts from '../Posts';
 import './SinglePage.css'
 import App from '../../../App';
 import { Link } from 'react-router-dom';
+import Categories from '../../Home/Categories/Categories';
+import CategoryPosts from '../PostCategories/CategoryPosts/CategoryPosts';
 
 
 
@@ -27,8 +28,6 @@ class SinglePage extends Component {
             const fetchSinglePostData = await fetch(`http://localhost:3333/posts/post/${postId}`);
             const data = await fetchSinglePostData.json();
 
-            console.log('dataaaaaa');
-            console.log(data.userId._id);
             this.setState({
                 singlePostData: data,
                 title: data.title,
@@ -51,7 +50,6 @@ class SinglePage extends Component {
                 contact: data.contact,
                 userId: data.userId._id
             })
-            console.log(this.state.singlePostData);
         } catch (error) {
             console.log(error);
         }
@@ -60,6 +58,7 @@ class SinglePage extends Component {
 
     componentDidMount = () => {
         this.fetchSinglePost();
+        window.scrollTo(0, 0);
     }
 
 
@@ -99,7 +98,7 @@ class SinglePage extends Component {
     }
 }
 
-const SinglePagePost = ({ title, price, currency, date, imgUrl, imgUrl2, imgUrl3, imgUrl4, imgUrl5, desc, cat, region, role, state, type, firstname, lastname, contact, userId}) => {
+const SinglePagePost = ({ title, price, currency, date, imgUrl, imgUrl2, imgUrl3, imgUrl4, imgUrl5, desc, cat, region, role, state, type, firstname, lastname, contact, userId }) => {
     return (
         <div className='single-page'>
             <div className='single-page-left-side'>
@@ -107,43 +106,44 @@ const SinglePagePost = ({ title, price, currency, date, imgUrl, imgUrl2, imgUrl3
                     <div className='post-title'>{title}</div>
 
                     <div className='post-info'>
-                        <div className='post-price'>{price}{currency}</div>
+                        {price ? <div className='post-price'>{price}{currency}</div> : null}
                         <div className='post-region'>{region}</div>
                     </div>
                 </div>
 
                 <div className='post-images'>
                     <div className='post-image-main'>
-                        <img src={imgUrl} />
+                        {imgUrl ? <img src={imgUrl} /> : null}
+                        {!imgUrl ? <img src={'https://res.cloudinary.com/dgzlcuh8j/image/upload/v1597252820/picture-icon_hq0jhe.png'} /> : null}
                     </div>
                     <div className='post-image-other'>
-                        <img src={imgUrl2} />
-                        <img src={imgUrl3} />
-                        <img src={imgUrl4} />
-                        <img src={imgUrl5} />
+                        {imgUrl2 ? <img src={imgUrl2} /> : null}
+                        {imgUrl3 ? <img src={imgUrl3} /> : null}
+                        {imgUrl4 ? <img src={imgUrl4} /> : null}
+                        {imgUrl5 ? <img src={imgUrl5} /> : null}
                     </div>
                 </div>
 
                 <div className='post-other'>
-                    <div className='post-cat'>Category: <div>{cat}</div> </div>
-                    <div className='post-date'>Date: <div>{date}</div> </div>
-                    <div className='post-role'>Role: <div>{role}</div> </div>
-                    <div className='post-state'>State: <div>{state}</div> </div>
-                    <div className='post-type'>Type: <div>{type}</div> </div>
+                    {state ? <div className='post-state'>State: <div>{state}</div> </div> : null}
+                    {type ? <div className='post-type'>Type: <div>{type}</div> </div> : null}
+                    {role ? <div className='post-role'>Role: <div>{role}</div> </div> : null}
+                    {date ? <div className='post-date'>Date: <div>{date}</div> </div> : null}
+                    {cat ? <div className='post-cat'>Category: <div>{cat}</div> </div> : null}
                 </div>
 
-                <div className='post-desc'>Description: {desc}</div>
+                {desc ? <div className='post-desc'>Description: <div>{desc}</div> </div> : null}
             </div>
             <div className='single-page-right-side'>
                 <div className='post-owner'>
-                    <Link to={`/posts/user/${userId}`}>
-                        <div className='owner-info'>
+                    <div className='owner-info'>
+                        <Link to={`/posts/user/${userId}`}>
                             <div className='owner-avatar'>
                                 <img src={'https://rpg-cify0074508w.netdna-ssl.com/wp-content/uploads/2020/02/service_default_avatar_182956.png'} />
                             </div>
                             <div className='owner-userName'>{firstname} {lastname}</div>
-                        </div>
-                    </Link>
+                        </Link>
+                    </div>
                     <div className='owner-contact'>
                         <div className='owner-call'>
                             <div className='owner-contactNumber'>Contact: {contact}</div>
@@ -152,8 +152,12 @@ const SinglePagePost = ({ title, price, currency, date, imgUrl, imgUrl2, imgUrl3
                 </div>
                 <div className='similar-posts'>
                     <div className='similar-posts-heading'>Similar Announcements</div>
+
                     <div className='similar-posts-content'>
-                        <Posts data={data} />
+                        {/* <CategoryPosts cat={'vehicles'}/> */}
+                        <CategoryPosts cat={'all'} catPostsHeading='' />
+                        {/* #lb #desc = 1st time renders cat=undefined value,2nd time renders what is needed cat=real-cat */}
+                        {/* <CategoryPosts cat={cat}/> */}
                     </div>
                 </div>
             </div>
@@ -163,15 +167,15 @@ const SinglePagePost = ({ title, price, currency, date, imgUrl, imgUrl2, imgUrl3
 
 // sets def props if added from postman* (*: not empty parameters) 
 SinglePagePost.defaultProps = {
-    title: 'Not Found',
-    desc: 'descccccc default',
-    cat: 'N/A',
-    region: 'N/A',
-    role: 'N/A',
-    state: 'N/A',
-    type: 'N/A',
-    role: 'N/A',
-    desc: 'N/A',
+    // title: 'Not Found',
+    // desc: 'descccccc default',
+    // cat: 'N/A',
+    // region: 'N/A',
+    // role: 'N/A',
+    // state: 'N/A',
+    // type: 'N/A',
+    // role: 'N/A',
+    // desc: 'N/A',
     // imgUrl: 'https://comnplayscience.eu/app/images/notfound.png',
 }
 

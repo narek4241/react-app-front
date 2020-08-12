@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Profile.scss';
 import Homebar from '../Homebar/Homebar';
 import Footer from '../Footer/Footer';
 
@@ -10,6 +11,10 @@ import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import NotFound from '../NotFound/NotFound';
 
+// // import SimpleList from './Material'
+
+// import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -21,9 +26,10 @@ import QueryBuilderIcon from '@material-ui/icons/QueryBuilder';
 import AddIcon from '@material-ui/icons/Add';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import Divider from '@material-ui/core/Divider';
-import './Profile.scss';
 
-
+// import Divider from '@material-ui/core/Divider';
+// import InboxIcon from '@material-ui/icons/Inbox';
+// import DraftsIcon from '@material-ui/icons/Drafts';
 
 class Profile extends Component {
     constructor(props) {
@@ -97,7 +103,7 @@ class Profile extends Component {
 
                     <div className='profile'>
 
-                        <div className='profile-side-menu'>
+                        <div className='side-menu'>
                             <div className='profile-menu'>
                                 <div className='profile-avatar'>
                                     <img src={'https://res.cloudinary.com/dgzlcuh8j/image/upload/v1596209154/avatar_oxcztw.png'}></img>
@@ -157,7 +163,7 @@ class Profile extends Component {
                             </div>
                         </div>
 
-                        <div className='profile-content-menu'>
+                        <div className='content-menu'>
                             <Posts data={this.state.profilePosts} />
                         </div>
                     </div>

@@ -117,13 +117,11 @@
                 border: 1px dashed grey;
                 border-radius: 20px;
                 transition: 1s;
+
+                /* background-color: red; */
             }
                 .post-owner:hover{
                     border-radius: 30px;
-                }
-                .post-owner a{
-                    width: 100%;
-                    display: flex;
                 }
                 .owner-info, .owner-contact{
                     width: 100%;
@@ -138,6 +136,13 @@
                     transition: 1s;
                     opacity: 0.85;
                 }
+                    .owner-info a{
+                        width: 100%;
+                        height: 100%;
+                        color: red;
+                        /* text-decoration: none; */
+                        color: #000;
+                    }
                     .owner-info:hover{
                         opacity: 1;
                     }
@@ -202,12 +207,18 @@
                 }
                 .similar-posts-content{
                     width: 100%;
+                    max-width: 250px;
                     height: auto;
                     /* #temporary */
                     overflow-y: auto;
                     max-height: 1500px;
+                    /* max-width: 500px; */
+                    display: flex;
+                    justify-content: center;
                 }
-            
+                    .similar-posts-content > div{
+                        width: 50%;
+                    }
 
 
 
@@ -217,11 +228,4 @@
 
 
 
-
-
-
-
-
-
-
-
+                    

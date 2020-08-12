@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './User.css';
+import './User.scss';
 import Homebar from '../../Homebar/Homebar';
 import Footer from '../../Footer/Footer';
 
@@ -10,7 +10,26 @@ import Posts from '../../Posts/Posts';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import NotFound from '../../NotFound/NotFound';
-// import {Modal} from 'material-ui/core/modal';
+
+// // import SimpleList from './Material'
+
+// import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+
+import CallIcon from '@material-ui/icons/Call';
+import EmailIcon from '@material-ui/icons/Email';
+import QueryBuilderIcon from '@material-ui/icons/QueryBuilder';
+import AddIcon from '@material-ui/icons/Add';
+import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
+import Divider from '@material-ui/core/Divider';
+
+// import Divider from '@material-ui/core/Divider';
+// import InboxIcon from '@material-ui/icons/Inbox';
+// import DraftsIcon from '@material-ui/icons/Drafts';
 
 class User extends Component {
     constructor(props) {
@@ -18,43 +37,35 @@ class User extends Component {
     }
     state = {
         userData: [],
-        profilePosts: []
+        userPosts: []
     }
 
-    // fetchProfile = async () => {
-    //     try {
-    //         const userId = this.props.match.params.userId;
-    //         // create new route in 'backend' to respond user profile data (how was done in 'auth/profile')
-    //         const fetchProfileData = await fetch(`http://localhost:3333/posts/user/${userId}`,
-    //             {
-    //                 method: 'GET',
-    //                 headers: {
-    //                     'Content-Type': 'application/json',
-    //                     'auth-token': localStorage.token
-    //                 }
-    //             });
-    //         const data = await fetchProfileData.json()
-
-    //         this.setState({
-    //             userData: data
-    //         })
-    //         console.log(`logggggg`);
-    //         console.log(this.state.userData[0].userId.firstname);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
+    // componentDidMount(){
+    //     this.forceUpdate();
     // }
 
-
-    // change names 'profile' to 'user'
-    fetchProfilePosts = async () => {
+    fetchUserData = async () => {
         try {
             const userId = this.props.match.params.userId;
-            const fetchProfilePostsData = await fetch(`http://localhost:3333/posts/user/${userId}`);
-            const data = await fetchProfilePostsData.json()
+            const fetchUserData = await fetch(`http://localhost:3333/auth/profile/user/${userId}`);
+            const data = await fetchUserData.json()
 
             this.setState({
-                profilePosts: data
+                userData: data
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    fetchUserPosts = async () => {
+        try {
+            const userId = this.props.match.params.userId;
+            const fetchUserPostsData = await fetch(`http://localhost:3333/posts/user/${userId}`);
+            const data = await fetchUserPostsData.json()
+
+            this.setState({
+                userPosts: data
             })
         } catch (error) {
             console.log(error);
@@ -62,61 +73,68 @@ class User extends Component {
     }
 
     componentDidMount() {
-        this.fetchProfilePosts();
+        this.fetchUserPosts();
+        this.fetchUserData();
     }
 
     render() {
         return (
-            <div className="profile-container">
+            <div className="user-container">
                 <Login />
                 <Register />
 
                 <Homebar />
-
-                {localStorage.token ?
-
-                    <div className='profile'>
-                        <div className='side-menu'>
-                            <div className='profile-menu'>
-                                <div className='profile-avatar'>
-                                    <img src={'https://res.cloudinary.com/dgzlcuh8j/image/upload/v1596209154/avatar_oxcztw.png'}></img>
-                                </div>
-                                <div className='profile-fullname'>
-                                    <div>{this.state.userData.firstname}</div>
-                                    <div>{this.state.userData.lastname}</div>
-                                </div>
-                                <div className='profile-contact'>
-                                    <div>{this.state.userData.contact}</div>
-                                    <div>{this.state.userData.email}</div>
-                                </div>
-                                <div className='profile-info'>
-                                    <div>In Scelet since</div>
-                                    <div>{this.state.userData.date}</div>
-                                </div>
-
-                            </div>
-                            <div className='profile-add-post'>
-                                <Link to='/posts/add'>Add Post</Link>
-                            </div>
-                            <div className='profile-logout'>
-                                <Link to='/' onClick={() => { localStorage.removeItem('token') }}>Log Out</Link>
-                            </div>
-                        </div>
-                        <div className='contentMenu'>
-                            {/* <Posts data={data} /> */}
-                            <Posts data={this.state.profilePosts} />
-                        </div>
+                
+                <div className='user'>
+                    <div className='user-content-menu'>
+                        <Posts data={this.state.userPosts} />
                     </div>
-                    :
-                    <NotFound message={'Log In/Register to visit User'}></NotFound>
-                }
+                    <div className='user-side-menu'>
+                        <div className='user-menu'>
+                            <div className='user-avatar'>
+                                <img src={'https://res.cloudinary.com/dgzlcuh8j/image/upload/v1596209154/avatar_oxcztw.png'}></img>
+                            </div>
+                            <div className='user-info'>
+                                <ListItem button>
+                                    <ListItemIcon>
+                                        <QueryBuilderIcon />
+                                        <ListItemText primary={'In Scelet since'} />
+                                    </ListItemIcon>
+                                    <ListItemText primary={this.state.userData.date} />
+                                </ListItem>
+                            </div>
+                            <div className='user-fullname'>
+                                <div>{this.state.userData.firstname}</div>
+                                <div>{this.state.userData.lastname}</div>
+                            </div>
+                            <div className='user-contact'>
+                                <List>
+                                    <ListItem button>
+                                        <ListItemIcon>
+                                            <CallIcon />
+                                        </ListItemIcon>
+                                        <ListItemText primary={this.state.userData.contact} />
+                                    </ListItem>
+                                    <ListItem button>
+                                        <ListItemIcon>
+                                            <EmailIcon />
+                                        </ListItemIcon>
+                                        <ListItemText primary={this.state.userData.email} />
+                                    </ListItem>
+                                </List>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
                 <Footer />
             </div>
         );
     }
 }
 
-// export default User;
+// export default user;
 export default withRouter(User);
 
 

@@ -5,7 +5,9 @@ import Homebar from '../Homebar/Homebar';
 import Categories from './Categories/Categories';
 import Posts from '../Posts/Posts';
 import Footer from '../Footer/Footer';
+import PostCategories from '../Posts/PostCategories/PostCategories';
 import './Home.css';
+import CategoryPosts from '../Posts/PostCategories/CategoryPosts/CategoryPosts';
 
 
 class Home extends Component {
@@ -31,6 +33,7 @@ class Home extends Component {
 
     componentDidMount = () => {
         this.fetchPosts();
+        window.scrollTo(0, 0);
     }
 
 
@@ -42,29 +45,15 @@ class Home extends Component {
 
                 <Homebar />
 
-                <div style={{width: '100%',height: '100px'}}></div>
-                <Posts data={this.state.postsData}/>
-                <div style={{width: '100%',height: '100px'}}></div>
+                <PostCategories />
 
+                <div>
+                    <CategoryPosts cat='all' catPostsHeading=''/>
+                </div>
 
-                {/* #task create comp. which gets 'cat' prop, returns headlined content, with posts in theme */}
-                {/* <div style={{width: '100%',height: '100px'}}></div>
-                <Posts data={this.state.postsData}/>
-                <div style={{width: '100%',height: '100px'}}></div>
-                <Posts data={this.state.postsData}/>
-                <div style={{width: '100%',height: '100px'}}></div>
-                <Posts data={this.state.postsData}/> */}
+                <div style={{height: '100px'}}></div>
 
-                
-                {/* <Posts data={this.state.postsData}/>
-                <Posts data={this.state.postsData}/>
-                <Posts data={this.state.postsData}/>
-                <Posts data={this.state.postsData}/>
-                <Posts data={this.state.postsData}/>
-                <Posts data={this.state.postsData}/>
-                <Posts data={this.state.postsData}/> */}
-
-                <Categories />
+                {/* <Categories /> */}
 
                 <Footer />
             </div>
@@ -73,6 +62,7 @@ class Home extends Component {
 }
 
 export default Home;
+
 
 
 

@@ -181,6 +181,10 @@
                 justify-content: center;
                 position: relative;
             }
+                .add-post-submit > a{
+                    /* background-color: red; */
+                    /* width: 100%; */
+                }
                 .add-post-submit input{
                     width: 10%;
                     height: 100%;

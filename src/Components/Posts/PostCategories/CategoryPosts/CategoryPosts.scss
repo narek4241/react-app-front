@@ -1,0 +1,19 @@
+@mixin flexCenter($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+.category-posts{
+    width: 100%;
+    @include flexCenter(column);
+    padding-bottom: 3%;
+    align-items: flex-start;
+    // border-bottom: 1px dashed #000;
+    // box-sizing: border-box;
+    h1{
+        font-size: 26px;
+        padding-left: 5px;
+    }
+}

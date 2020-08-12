@@ -1,0 +1,190 @@
+@mixin flexCenter($direction: row){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+.profile-container{
+    width: 100%;
+    @include flexCenter(column);
+    justify-content: flex-start;
+    .profile{
+        width: 75%;
+        min-height: calc(100vh - 13.75vh);
+
+        min-height: 125vh;
+
+        height: 100%;
+        display: flex;
+        .profile-side-menu{
+            width: 35%;
+            min-height: calc(100vh - 13.75vh);
+            height: 100%;
+            position: sticky;
+            top: 0;
+            background-color: #eff2f9;
+            @include flexCenter(column);
+            justify-content: flex-start;
+            padding-top: 5%;
+            // margin-top: 2.5%;
+            // border-radius: 20px;
+
+            .profile-menu, .profile-add-post, .profile-logout{
+                width: 75%;
+                height: 100%;
+                background-color: #fff;
+                border-radius: 10px;
+            }
+            
+            .profile-menu{
+                @include flexCenter(column);
+                justify-content: flex-start;
+                height: 100%;
+
+                .profile-avatar, .profile-fullname, .profile-contact, .profile-info{
+                    width: 100%;
+                    overflow: hidden;
+                }
+                .profile-avatar{
+                    height: 35%;
+                    @include flexCenter();
+                    img{
+                        width: 75%;
+                        max-width: 130px;
+                        border-radius: 500px;
+                        padding-top: 5%;
+                    }
+                }
+                .profile-info{
+                    height: 10%;
+                    div{
+                        @include flexCenter(column);
+                        justify-content: space-between;
+                        .MuiListItemIcon-root{
+                            @include flexCenter();
+                            width: 40%;
+                        }
+                        .MuiTypography-root{
+                            font-size: 14px;
+                        }
+                    }
+                }
+                .profile-fullname{
+                    height: 10vh;
+                    height: 20%;
+                    padding: 5% 0%;
+                    text-decoration: underline;
+                    @include flexCenter();
+                    font-size: 25px;
+                    object-fit: contain;
+                    div{
+                        padding: 0% 1%;
+                    }
+                }
+                .profile-contact{
+                    height: 20vh;
+                    height: 35%;
+                    @include flexCenter(column);
+                    font-size: 25px;
+                    object-fit: contain;
+                    div{
+                        padding: 10px 0px;
+                    }
+                    .contact-phone, .contact-email{
+                        width: 75%;
+                        div{
+                            @include flexCenter();
+                            .MuiListItemIcon-root{
+                                @include flexCenter();
+                                justify-content: flex-end;
+                                // mui icon
+                            }
+                            .MuiListItemText-root{
+                                // mui text
+                            }
+                        }
+                    }
+                    ul{
+                        width: 70%;
+                        div{
+                            @include flexCenter();
+                            .MuiListItemIcon-root{
+                                @include flexCenter();
+                                justify-content: flex-end;
+                                // mui icon
+                            }
+                            .MuiListItemText-root{
+                                // mui text
+                            }
+                        }
+                    }
+                }
+            }
+            .profile-add-post{
+                margin-top: 2.5%;
+                cursor: pointer;
+                &:hover{
+                    text-decoration: none;
+                    background-color: rgba(0,0,0, 0.1);
+                }
+                a{
+                    text-decoration: none;
+                    width: 100%;
+                    height: 100%;
+                    color: #000;
+
+                    @include flexCenter();
+                }
+            }
+            .profile-logout{
+                margin-top: 2.5%;
+                cursor: pointer;
+                &:hover{
+                    text-decoration: none;
+                    background-color: rgba(0,0,0, 0.1);
+                } 
+                /* #dirty-css #improve-later #file-global-check */
+                a{
+                    text-decoration: none;
+                    width: 100%;
+                    height: 100%;
+                    color: #000;
+
+                    @include flexCenter();
+                    justify-content: flex-end;
+                }
+            }
+        }
+        .profile-content-menu{
+            width: 65%;
+            height: 100%;
+            @include flexCenter();
+        }
+    }
+}
+        
+  
+@media (max-width: 1350px){
+    .profile-container{
+        .profile{
+            width: 90%;
+            .profile-side-menu{
+                position: relative;
+                .profile-menu, .profile-add-post, .profile-logout{
+                    width: 90%;
+                }
+                .profile-menu{
+                    .profile-avatar{
+                        img{
+                            width: 50%;
+                            max-width: 120px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+                
+  

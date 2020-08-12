@@ -27,8 +27,9 @@ const validation = Yup.object().shape(
             .required('Email is Required')
             .max(30, 'Email max length is 30')
         ,
-        phone: Yup.string()
-            .matches(phoneRegExp, 'Must be a valid Phone Number')
+        contact: Yup.string()
+            .required('contact Number is Required')
+            .matches(phoneRegExp, 'Must be a valid contact Number')
         ,
         password: Yup.string()
             .required('Password is Required')
@@ -75,7 +76,7 @@ class Register extends Component {
             </div> */}
                 <Formik
                     initialValues={{
-                        firstname: '', lastname: '', email: '', phone: '', password: '',
+                        firstname: '', lastname: '', email: '', contact: '', password: '',
                         passwordConf: '', checkboxTerms: 'false'
                     }}
                     validationSchema={validation}
@@ -107,7 +108,7 @@ class Register extends Component {
                                     <Error touch={touched.firstname} error={errors.firstname} />
                                     <Error touch={touched.lastname} error={errors.lastname} />
                                     <Error touch={touched.email} error={errors.email} />
-                                    <Error touch={touched.phone} error={errors.phone} />
+                                    <Error touch={touched.contact} error={errors.contact} />
                                     <Error touch={touched.password} error={errors.password} />
                                     <Error touch={touched.passwordConf} error={errors.passwordConf} />
                                     <Error touch={touched.checkboxTerms} error={errors.checkboxTerms} />
@@ -131,7 +132,7 @@ class Register extends Component {
                                         onChange={handleChange} onBlur={handleBlur}
                                     ></input>
                                     <input
-                                        id={'phone'} name={'phone'} type={'tel'} value={values.phone}
+                                        id={'contact'} name={'contact'} type={'tel'} value={values.contact}
                                         className={''} placeholder={'Phone: +374CCNNNNNN'}
                                         onChange={handleChange} onBlur={handleBlur}
                                     ></input>
@@ -187,6 +188,7 @@ class Register extends Component {
 }
 
 export default Register;
+
 
 
 

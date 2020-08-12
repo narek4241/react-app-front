@@ -12,7 +12,7 @@ const Categories = () => {
                 <div className='cats-header-paragraph'></div>
                 <div className='cats-header-logo'></div>
             </div>
-            <div className='cats-options'>
+            {/* <div className='cats-options'>
                 <div className='cats-options-heading'>Pick your Category:</div>
                 <div className='cats-options-content'>
                     <div>
@@ -36,7 +36,7 @@ const Categories = () => {
                         <div>↓</div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

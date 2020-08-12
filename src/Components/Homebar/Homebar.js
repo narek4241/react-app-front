@@ -25,7 +25,13 @@ class Homebar extends Component {
                 <div className='homebar-top'>
                     <div className='logo2'>
                         <Link to={`/`}>
+                            {/* camel */}
                             <img src={'https://res.cloudinary.com/dgzlcuh8j/image/upload/v1596690168/main-logo_rpzuag.png'}></img>
+                            {/* skelet +0 (oversizes) */}
+                            {/* <img src={'https://res.cloudinary.com/dgzlcuh8j/image/upload/v1597257828/main-logo4_qmad1l.png'}></img> */}
+                            {/* black rects + */}
+                            {/* <img src={'https://res.cloudinary.com/dgzlcuh8j/image/upload/v1597256424/main-logo2_q72z4w.png'}></img> */}
+                            {/* <img style={{maxWidth: '135px'}} src={'https://res.cloudinary.com/dgzlcuh8j/image/upload/v1597257828/main-logo4_qmad1l.png'}></img> */}
                         </Link>
                     </div>
                     <div className='side-nav2'>
@@ -50,7 +56,14 @@ class Homebar extends Component {
                     <div className='homebar-lf-side'>
                         <div className='logo'>
                             <Link to={`/`}>
+                                {/* camel */}
                                 <img src={'https://res.cloudinary.com/dgzlcuh8j/image/upload/v1596690168/main-logo_rpzuag.png'}></img>
+                                {/* black rects */}
+                                {/* <img src={'https://res.cloudinary.com/dgzlcuh8j/image/upload/v1597256424/main-logo2_q72z4w.png'}></img> */}
+                                {/* skelet-icon0 */}
+                                {/* <img src={'https://res.cloudinary.com/dgzlcuh8j/image/upload/v1597256768/main-logo3_v07dc0.png'}></img> */}
+                                {/* skelet-icon + */}
+                                {/* <img style={{maxWidth: '150px'}} src={'https://res.cloudinary.com/dgzlcuh8j/image/upload/v1597257828/main-logo4_qmad1l.png'}></img> */}
                             </Link>
                         </div>
                     </div>
