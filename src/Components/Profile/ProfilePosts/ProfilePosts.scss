@@ -1,0 +1,29 @@
+@mixin flexCenter($direction: row){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+.ProfilePosts{
+    width: 1200px;
+    height: auto;
+    background-color: var(--posts-bg);
+    @include flexCenter(row);
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    z-index: 1;
+}
+
+@media (max-width: 1400px){
+    .ProfilePosts{
+        width: 93.5%;
+    }
+}
+@media (max-width: 481px){
+    .ProfilePosts{
+        width: 100%;
+    }
+}
+

@@ -3,13 +3,9 @@ import Login from '../../Authotication/Login/Login';
 import Register from '../../Authotication/Register/Register';
 import Homebar from '../../Homebar/Homebar';
 import Footer from '../../Footer/Footer';
-import Posts from '../Posts';
-import './SinglePage.css'
-import App from '../../../App';
 import { Link } from 'react-router-dom';
-import Categories from '../../Home/Categories/Categories';
 import CategoryPosts from '../PostCategories/CategoryPosts/CategoryPosts';
-
+import './SinglePage.css'
 
 
 class SinglePage extends Component {
@@ -25,7 +21,7 @@ class SinglePage extends Component {
         try {
             // gets :id from url
             const postId = this.props.match.params.postId;
-            const fetchSinglePostData = await fetch(`http://localhost:3333/posts/post/${postId}`);
+            const fetchSinglePostData = await fetch(`https://radiant-citadel-22741.herokuapp.com/posts/post/${postId}`);
             const data = await fetchSinglePostData.json();
 
             this.setState({
@@ -99,6 +95,13 @@ class SinglePage extends Component {
 }
 
 const SinglePagePost = ({ title, price, currency, date, imgUrl, imgUrl2, imgUrl3, imgUrl4, imgUrl5, desc, cat, region, role, state, type, firstname, lastname, contact, userId }) => {
+    // #wet #wetSnippet #dirty (same used in post.js)
+    let priceAndCurrency;
+    if (currency == 'usd') { priceAndCurrency = '$' + price; }
+    else if (currency == 'amd') { priceAndCurrency = price + ' ֏'; }
+    else if (currency == 'rub') { priceAndCurrency = price + ' руб.'; }
+    else if (currency == 'eur') { priceAndCurrency = '€ ' + price; }
+
     return (
         <div className='single-page'>
             <div className='single-page-left-side'>
@@ -106,7 +109,7 @@ const SinglePagePost = ({ title, price, currency, date, imgUrl, imgUrl2, imgUrl3
                     <div className='post-title'>{title}</div>
 
                     <div className='post-info'>
-                        {price ? <div className='post-price'>{price}{currency}</div> : null}
+                        {price ? <div className='post-price'>{priceAndCurrency}</div> : null}
                         <div className='post-region'>{region}</div>
                     </div>
                 </div>
@@ -154,8 +157,7 @@ const SinglePagePost = ({ title, price, currency, date, imgUrl, imgUrl2, imgUrl3
                     <div className='similar-posts-heading'>Similar Announcements</div>
 
                     <div className='similar-posts-content'>
-                        {/* <CategoryPosts cat={'vehicles'}/> */}
-                        <CategoryPosts cat={'all'} catPostsHeading='' />
+                        {/* <CategoryPosts cat={'all'} catPostsHeading='' /> */}
                         {/* #lb #desc = 1st time renders cat=undefined value,2nd time renders what is needed cat=real-cat */}
                         {/* <CategoryPosts cat={cat}/> */}
                     </div>
@@ -163,48 +165,11 @@ const SinglePagePost = ({ title, price, currency, date, imgUrl, imgUrl2, imgUrl3
             </div>
         </div >
     );
-}
 
-// sets def props if added from postman* (*: not empty parameters) 
+}
 SinglePagePost.defaultProps = {
-    // title: 'Not Found',
-    // desc: 'descccccc default',
-    // cat: 'N/A',
-    // region: 'N/A',
     // role: 'N/A',
-    // state: 'N/A',
-    // type: 'N/A',
-    // role: 'N/A',
-    // desc: 'N/A',
     // imgUrl: 'https://comnplayscience.eu/app/images/notfound.png',
 }
 
 export default SinglePage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

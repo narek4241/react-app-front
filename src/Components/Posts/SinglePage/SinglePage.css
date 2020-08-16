@@ -207,17 +207,24 @@
                 }
                 .similar-posts-content{
                     width: 100%;
-                    max-width: 250px;
+                    max-width: 650px;
                     height: auto;
                     /* #temporary */
                     overflow-y: auto;
+                    /* overflow-x: hidden; */
                     max-height: 1500px;
                     /* max-width: 500px; */
                     display: flex;
                     justify-content: center;
+                    align-items: center;
+
+                    border: 1px solid #000;
+                    box-sizing: border-box;
                 }
                     .similar-posts-content > div{
                         width: 50%;
+                        width: 90px;
+                        height: 100%;
                     }
 
 

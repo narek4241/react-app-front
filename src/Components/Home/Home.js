@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 import Login from '../Authotication/Login/Login';
 import Register from '../Authotication/Register/Register';
 import Homebar from '../Homebar/Homebar';
-import Categories from './Categories/Categories';
-import Posts from '../Posts/Posts';
+import HomeView from './HomeView/HomeView';
 import Footer from '../Footer/Footer';
 import PostCategories from '../Posts/PostCategories/PostCategories';
-import './Home.css';
-import CategoryPosts from '../Posts/PostCategories/CategoryPosts/CategoryPosts';
+import './Home.scss';
 
 
 class Home extends Component {
@@ -20,7 +18,7 @@ class Home extends Component {
 
     fetchPosts = async () => {
         try {
-            const fetchPostsData = await fetch('http://localhost:3333/posts');
+            const fetchPostsData = await fetch('https://radiant-citadel-22741.herokuapp.com/posts');
             const data = await fetchPostsData.json();
 
             this.setState({
@@ -45,15 +43,11 @@ class Home extends Component {
 
                 <Homebar />
 
+                <HomeView />
+
                 <PostCategories />
 
-                <div>
-                    <CategoryPosts cat='all' catPostsHeading=''/>
-                </div>
-
-                <div style={{height: '100px'}}></div>
-
-                {/* <Categories /> */}
+                <div style={{ height: '100px' }}></div>
 
                 <Footer />
             </div>
@@ -62,8 +56,4 @@ class Home extends Component {
 }
 
 export default Home;
-
-
-
-
 

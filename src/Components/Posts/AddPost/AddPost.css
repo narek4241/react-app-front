@@ -189,7 +189,7 @@
                     width: 10%;
                     height: 100%;
                     min-height: 50px;
-                    background:var(--home-bar-bg) url(../../../images/login-submit.png) no-repeat center ;
+                    background:var(--home-bar-bg) url('https://res.cloudinary.com/dgzlcuh8j/image/upload/v1597613916/login-submit_wmqoe3.png') no-repeat center ;
                     background-size: 40%;
                     cursor: pointer;
                     z-index: 1;

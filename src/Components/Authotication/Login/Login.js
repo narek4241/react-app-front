@@ -41,8 +41,7 @@ class Login extends Component {
 
     fetchLogin = async (value) => {
         try {
-            // https://agile-temple-62197.herokuapp.com/auth/signin
-            const fetchLoginData = await fetch('http://localhost:3333/auth/signin',
+            const fetchLoginData = await fetch('https://radiant-citadel-22741.herokuapp.com/auth/signin',
                 {
                     method: 'POST',
                     headers: {
@@ -76,6 +75,7 @@ class Login extends Component {
                             this.fetchLogin(values);
                             resetForm();
                             setSubmitting(false);
+
                             this.props.history.push('/auth/profile');
                             // elemInOut('register', 'login');
                             elemOut('login');
@@ -98,7 +98,8 @@ class Login extends Component {
                             >
                                 <div className="login-fb">
                                     <div className='fb-icon'>
-                                        <img style={{ cursor: "not-allowed" }} src={require('../../../images/login-with-facebook.png')} alt='Fb'></img>
+                                        {/* link image from files -> src={require('../../../images/login-with-facebook.png')} */}
+                                        <img style={{ cursor: "not-allowed" }} src={'https://res.cloudinary.com/dgzlcuh8j/image/upload/v1597613915/login-with-facebook_yftwam.png'} alt='Fb'></img>
                                     </div>
                                     <div className="fb-text">
                                         <Link to="#" style={{ cursor: "not-allowed" }}>Login with Facebook</Link>
@@ -154,7 +155,7 @@ class Login extends Component {
                 </Formik>
 
                 <div id='loginExit' onClick={loginexit} className="login-exit">
-                    <img src={require('../../../images/exit.png')}></img>
+                    <img src={'https://res.cloudinary.com/dgzlcuh8j/image/upload/v1597613915/exit_suue7k.png'}></img>
                 </div>
             </div >
         );
@@ -162,8 +163,3 @@ class Login extends Component {
 }
 
 export default withRouter(Login);
-// export default Login;
-
-
-
-

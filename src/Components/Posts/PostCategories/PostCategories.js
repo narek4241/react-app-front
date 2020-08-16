@@ -12,7 +12,7 @@ import './PostCategories.scss';
 //     }
 
 //     fecthPostsNotEmptyCats = async () => {
-//         const fecthPostsNotEmptyCatsData = await fetch('http://localhost:3333/posts/cats/notempty');
+//         const fecthPostsNotEmptyCatsData = await fetch('https://radiant-citadel-22741.herokuapp.com/posts/cats/notempty');
 //         const data = await fecthPostsNotEmptyCatsData.json();
 //         this.setState({
 //             notEmptyCats: data
@@ -40,7 +40,7 @@ let notEmptyCats = [];
 // const [notEmptyCats, setNotEmptyCats] = useState([]);
 
 const fecthPostsNotEmptyCats = async () => {
-    const fecthPostsNotEmptyCatsData = await fetch('http://localhost:3333/posts/cats/notempty');
+    const fecthPostsNotEmptyCatsData = await fetch('https://radiant-citadel-22741.herokuapp.com/posts/cats/notempty');
     notEmptyCats = await fecthPostsNotEmptyCatsData.json();
 }
 
@@ -67,7 +67,7 @@ let proper = [`electronics`, 'b', 'c'];
 
 const PostCategories = (props) => {
     const fecthPostsNotEmptyCats = async () => {
-        const fecthPostsNotEmptyCatsData = await fetch('http://localhost:3333/posts/cats/notempty');
+        const fecthPostsNotEmptyCatsData = await fetch('https://radiant-citadel-22741.herokuapp.com/posts/cats/notempty');
         notEmptyCats = await fecthPostsNotEmptyCatsData.json();
     }
 
@@ -79,23 +79,11 @@ const PostCategories = (props) => {
             {/* same lb how is/was in singlePage similarPosts */}
             {/* <CategoryPosts cat={`${notEmptyCats[1]}`} /> */}
 
-            {/* <CategoryPosts cat={'electronics'} />
-            <CategoryPosts cat={'vehicles'} /> */}
+            <CategoryPosts cat='electronics' catPostsHeading='Electronics' />
+            <CategoryPosts cat='vehicles' catPostsHeading='Vehicles' />
+            <CategoryPosts cat='all' catPostsHeading='Show All' />
         </div>
     )
 }
 
 export default PostCategories;
-
-
-
-
-
-
-
-
-
-
-
-
-

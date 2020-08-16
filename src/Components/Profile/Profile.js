@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Homebar from '../Homebar/Homebar';
 import Footer from '../Footer/Footer';
-
 import Login from '../Authotication/Login/Login';
 import Register from '../Authotication/Register/Register';
 
@@ -22,7 +21,7 @@ import AddIcon from '@material-ui/icons/Add';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import Divider from '@material-ui/core/Divider';
 import './Profile.scss';
-
+import ProfilePosts from './ProfilePosts/ProfilePosts';
 
 
 class Profile extends Component {
@@ -34,13 +33,10 @@ class Profile extends Component {
         profilePosts: []
     }
 
-    // componentDidMount(){
-    //     this.forceUpdate();
-    // }
 
     fetchProfile = async () => {
         try {
-            const fetchProfileData = await fetch('http://localhost:3333/auth/profile',
+            const fetchProfileData = await fetch('https://radiant-citadel-22741.herokuapp.com/auth/profile',
                 {
                     method: 'GET',
                     headers: {
@@ -62,7 +58,7 @@ class Profile extends Component {
 
     fetchProfilePosts = async () => {
         try {
-            const fetchProfilePostsData = await fetch('http://localhost:3333/posts/profile',
+            const fetchProfilePostsData = await fetch('https://radiant-citadel-22741.herokuapp.com/posts/profile',
                 {
                     method: 'GET',
                     headers: {
@@ -84,6 +80,10 @@ class Profile extends Component {
         this.fetchProfile();
         this.fetchProfilePosts();
     }
+    // componentDidUpdate(){
+    //     this.fetchProfile();
+    //     this.fetchProfilePosts();
+    // }
 
     render() {
         return (
@@ -117,13 +117,13 @@ class Profile extends Component {
                                 </div>
                                 <div className='profile-contact'>
                                     <List>
-                                        <ListItem button>
+                                        <ListItem>
                                             <ListItemIcon>
                                                 <CallIcon />
                                             </ListItemIcon>
                                             <ListItemText primary={this.state.profileData.contact} />
                                         </ListItem>
-                                        <ListItem button>
+                                        <ListItem>
                                             <ListItemIcon>
                                                 <EmailIcon />
                                             </ListItemIcon>
@@ -158,7 +158,8 @@ class Profile extends Component {
                         </div>
 
                         <div className='profile-content-menu'>
-                            <Posts data={this.state.profilePosts} />
+                            {/* <Posts data={this.state.profilePosts} /> */}
+                            <ProfilePosts data={this.state.profilePosts} />
                         </div>
                     </div>
                     :
@@ -170,16 +171,4 @@ class Profile extends Component {
     }
 }
 
-// export default Profile;
 export default withRouter(Profile);
-
-
-
-
-
-
-
-
-
-
-

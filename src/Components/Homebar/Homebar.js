@@ -93,11 +93,3 @@ class Homebar extends Component {
 
 // export default Homebar;
 export default withRouter(Homebar);
-
-
-
-
-
-
-
-

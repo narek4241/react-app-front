@@ -1,0 +1,29 @@
+@mixin flexCenter($direction: row){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+.footer{
+    width: 100%;
+    height: 30%;
+    height: 60px;
+    background-color: #000;
+    color: #fff;
+    @include flexCenter();
+    justify-content: space-evenly;
+    padding: 10px;
+    text-align: center;
+    a{
+        color: var(--sec-col1);
+    }
+}
+
+@media (max-width: 750px){
+    .footer{
+        height: 120px;
+        flex-direction: column;
+    }
+}
+

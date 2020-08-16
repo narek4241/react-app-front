@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './Footer.css'
+import { Link } from 'react-router-dom';
+import './Footer.scss'
 
 class Footer extends Component {
     constructor(props) {
@@ -10,19 +11,14 @@ class Footer extends Component {
         return (
             <div className='footer'>
                 <div className='footer-copyright'>
-                    © 2020 Scelet SSI.All rights reserved.
+                    © 2020 Scelet by SiteSourceInc. All rights reserved. 
             </div>
-                <div>SiteSourceInc</div>
+                <div>Website by <a href='https://github.com/narek4241' target='_blank'>Narek Ghazaryan</a></div>
             </div>
         );
     }
 }
 
 export default Footer;
-
-
-
-
-
 
 

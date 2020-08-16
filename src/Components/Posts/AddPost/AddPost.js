@@ -8,14 +8,12 @@ import Footer from '../../Footer/Footer';
 import Error from '../../Authotication/Error';
 import './AddPost.css';
 import NotFound from '../../NotFound/NotFound';
-import { Link, withRouter } from 'react-router-dom';
-
+import { withRouter } from 'react-router-dom';
 
 
 const phoneRegExp = /^[+374]{4}[0-9]{8}$/;
 const priceRegExp = /^[1-9][0-9]*/;
 const urlRegExp = /^(http)(s?)(:\/\/)/;
-
 
 const validation = Yup.object().shape(
     {
@@ -32,8 +30,8 @@ const validation = Yup.object().shape(
         ,
 
         price: Yup.string()
-            .max(15, 'Price max. length is 30')
             .matches(priceRegExp, 'Must be a valid Price')
+            .max(15, 'Price max. length is 15')
         ,
         currency: Yup.string()
         ,
@@ -49,36 +47,31 @@ const validation = Yup.object().shape(
             .max(5000, 'Description max. length is 5000')
         ,
         imgUrl: Yup.string()
-            .min(2, 'Image Url min. length is 2')
-            .max(5000, 'Image Url max. length is 5000')
             .matches(urlRegExp, 'Must be a valid Url (ImgUrl 1)')
+            .max(5000, 'Image Url max. length is 5000')
         ,
         imgUrl2: Yup.string()
-            .min(2, 'Image Url 2 min. length is 2')
-            .max(5000, 'Image Url 2 max. length is 5000')
             .matches(urlRegExp, 'Must be a valid Url (ImgUrl 2)')
+            .max(5000, 'Image Url 2 max. length is 5000')
         ,
         imgUrl3: Yup.string()
-            .min(2, 'Image Url 3 min. length is 2')
-            .max(5000, 'Image Url 3 max. length is 5000')
             .matches(urlRegExp, 'Must be a valid Url (ImgUrl 3)')
+            .max(5000, 'Image Url 3 max. length is 5000')
         ,
         imgUrl4: Yup.string()
-            .min(2, 'Image Url 4 min. length is 2')
-            .max(5000, 'Image Url 4 max. length is 5000')
             .matches(urlRegExp, 'Must be a valid Url (ImgUrl 4)')
+            .max(5000, 'Image Url 4 max. length is 5000')
         ,
         imgUrl5: Yup.string()
-            .min(2, 'Image Url 5 min. length is 2')
-            .max(5000, 'Image Url 5 max. length is 5000')
             .matches(urlRegExp, 'Must be a valid Url (ImgUrl 5)')
+            .max(5000, 'Image Url 5 max. length is 5000')
         ,
 
         role: Yup.string()
         ,
         contact: Yup.string()
             .required('Phone Number is required')
-            .matches(phoneRegExp, 'Must be a valid Phone Number (+374CCNNNNNN)')
+            .matches(phoneRegExp, 'Must be a valid Phone Number (ARM)(+374CCNNNNNN)')
         ,
     }
 );
@@ -86,12 +79,9 @@ const validation = Yup.object().shape(
 class AddPost extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
     }
-    // https://agile-temple-62197.herokuapp.com/posts/add
     fetchAddPost = async (value) => {
-
-        const fetchAddPostData = await fetch('http://localhost:3333/posts/add',
+        const fetchAddPostData = await fetch('https://radiant-citadel-22741.herokuapp.com/posts/add',
             {
                 method: "POST",
                 headers: {

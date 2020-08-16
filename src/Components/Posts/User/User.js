@@ -1,35 +1,22 @@
 import React, { Component } from 'react';
-import './User.scss';
 import Homebar from '../../Homebar/Homebar';
 import Footer from '../../Footer/Footer';
-
 import Login from '../../Authotication/Login/Login';
 import Register from '../../Authotication/Register/Register';
 
 import Posts from '../../Posts/Posts';
 import { withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import NotFound from '../../NotFound/NotFound';
 
-// // import SimpleList from './Material'
-
-// import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-
 import CallIcon from '@material-ui/icons/Call';
 import EmailIcon from '@material-ui/icons/Email';
 import QueryBuilderIcon from '@material-ui/icons/QueryBuilder';
-import AddIcon from '@material-ui/icons/Add';
-import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
-import Divider from '@material-ui/core/Divider';
+import './User.scss';
 
-// import Divider from '@material-ui/core/Divider';
-// import InboxIcon from '@material-ui/icons/Inbox';
-// import DraftsIcon from '@material-ui/icons/Drafts';
 
 class User extends Component {
     constructor(props) {
@@ -47,7 +34,7 @@ class User extends Component {
     fetchUserData = async () => {
         try {
             const userId = this.props.match.params.userId;
-            const fetchUserData = await fetch(`http://localhost:3333/auth/profile/user/${userId}`);
+            const fetchUserData = await fetch(`https://radiant-citadel-22741.herokuapp.com/auth/profile/user/${userId}`);
             const data = await fetchUserData.json()
 
             this.setState({
@@ -61,7 +48,7 @@ class User extends Component {
     fetchUserPosts = async () => {
         try {
             const userId = this.props.match.params.userId;
-            const fetchUserPostsData = await fetch(`http://localhost:3333/posts/user/${userId}`);
+            const fetchUserPostsData = await fetch(`https://radiant-citadel-22741.herokuapp.com/posts/user/${userId}`);
             const data = await fetchUserPostsData.json()
 
             this.setState({
@@ -134,16 +121,4 @@ class User extends Component {
     }
 }
 
-// export default user;
 export default withRouter(User);
-
-
-
-
-
-
-
-
-
-
-

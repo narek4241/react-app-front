@@ -52,8 +52,7 @@ class Register extends Component {
 
     fetchRegister = async (value) => {
         try {
-            // https://agile-temple-62197.herokuapp.com/auth/signup
-            const fetchRegisterData = await fetch('http://localhost:3333/auth/signup',
+            const fetchRegisterData = await fetch('https://radiant-citadel-22741.herokuapp.com/auth/signup',
                 {
                     method: 'POST',
                     headers: {
@@ -180,7 +179,7 @@ class Register extends Component {
                 </Formik>
 
                 <div id='registerexit' onClick={registerexit} className="register-exit">
-                    <img src={require('../../../images/exit.png')}></img>
+                    <img src={'https://res.cloudinary.com/dgzlcuh8j/image/upload/v1597613915/exit_suue7k.png'}></img>
                 </div>
             </div>
         );
@@ -188,7 +187,3 @@ class Register extends Component {
 }
 
 export default Register;
-
-
-
-

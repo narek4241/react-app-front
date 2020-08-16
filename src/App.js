@@ -9,10 +9,7 @@ import Loader from 'react-loader-spinner';
 import NotFound from './Components/NotFound/NotFound';
 import Search from './Components/Posts/Search/Search';
 import User from './Components/Posts/User/User';
-
-import PostCategories from './Components/Posts/PostCategories/PostCategories';
 import './App.css';
-
 
 
 class App extends Component {
@@ -71,7 +68,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-
-

@@ -1,0 +1,14 @@
+@mixin flexCenter($direction: row){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+.Home{
+    width: 100%;
+    @include flexCenter(column);
+}   
+
+
+
