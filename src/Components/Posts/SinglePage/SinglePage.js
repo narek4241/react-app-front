@@ -21,7 +21,7 @@ class SinglePage extends Component {
         try {
             // gets :id from url
             const postId = this.props.match.params.postId;
-            const fetchSinglePostData = await fetch(`https://radiant-citadel-22741.herokuapp.com/posts/post/${postId}`);
+            const fetchSinglePostData = await fetch(`https://skelet-rest-api.herokuapp.com/posts/post/${postId}`);
             const data = await fetchSinglePostData.json();
 
             this.setState({

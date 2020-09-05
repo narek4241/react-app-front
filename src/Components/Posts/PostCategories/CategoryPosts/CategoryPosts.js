@@ -14,7 +14,7 @@ class CategoryPosts extends Component {
 
     fetchPostsByCat = async (cat) => {
         try {
-            const fetchPostsByCatData = await fetch(`https://radiant-citadel-22741.herokuapp.com/posts/cat/${cat}`)
+            const fetchPostsByCatData = await fetch(`https://skelet-rest-api.herokuapp.com/posts/cat/${cat}`)
             const data = await fetchPostsByCatData.json();
             this.setState({
                 catPosts: data

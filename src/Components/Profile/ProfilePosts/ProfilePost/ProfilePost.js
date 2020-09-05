@@ -9,7 +9,7 @@ import './ProfilePost.scss';
 
 
 const fetchDeleteProfilePost = async (id) => {
-    const fetchDeleteProfilePostData = fetch(`https://radiant-citadel-22741.herokuapp.com/posts/del/${id}`,
+    const fetchDeleteProfilePostData = fetch(`https://skelet-rest-api.herokuapp.com/posts/del/${id}`,
         // #chsm opt-like 
         {
             method: 'GET',

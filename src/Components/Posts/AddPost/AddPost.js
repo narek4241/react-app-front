@@ -81,7 +81,7 @@ class AddPost extends Component {
         super(props);
     }
     fetchAddPost = async (value) => {
-        const fetchAddPostData = await fetch('https://radiant-citadel-22741.herokuapp.com/posts/add',
+        const fetchAddPostData = await fetch('https://skelet-rest-api.herokuapp.com/posts/add',
             {
                 method: "POST",
                 headers: {

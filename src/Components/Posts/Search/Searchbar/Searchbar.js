@@ -17,7 +17,7 @@ class Searchbar extends Component {
 
     fetchAllPosts = async () => {
         try {
-            const fetchAllPostsData = await fetch('https://radiant-citadel-22741.herokuapp.com/posts');
+            const fetchAllPostsData = await fetch('https://skelet-rest-api.herokuapp.com/posts');
             const data = await fetchAllPostsData.json()
             this.setState({
                 fileredPostsData: data
@@ -33,7 +33,7 @@ class Searchbar extends Component {
 
     fetchFilteredPosts = async (value) => {
         try {
-            const fetchFilteredPostsData = await fetch(`https://radiant-citadel-22741.herokuapp.com/posts/search/${value}`);
+            const fetchFilteredPostsData = await fetch(`https://skelet-rest-api.herokuapp.com/posts/search/${value}`);
             const data = await fetchFilteredPostsData.json();
 
             this.setState({

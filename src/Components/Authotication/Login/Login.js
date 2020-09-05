@@ -41,7 +41,7 @@ class Login extends Component {
 
     fetchLogin = async (value) => {
         try {
-            const fetchLoginData = await fetch('https://radiant-citadel-22741.herokuapp.com/auth/signin',
+            const fetchLoginData = await fetch('https://skelet-rest-api.herokuapp.com/auth/signin',
                 {
                     method: 'POST',
                     headers: {

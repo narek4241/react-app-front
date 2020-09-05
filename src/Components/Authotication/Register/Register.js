@@ -52,7 +52,7 @@ class Register extends Component {
 
     fetchRegister = async (value) => {
         try {
-            const fetchRegisterData = await fetch('https://radiant-citadel-22741.herokuapp.com/auth/signup',
+            const fetchRegisterData = await fetch('https://skelet-rest-api.herokuapp.com/auth/signup',
                 {
                     method: 'POST',
                     headers: {

@@ -34,7 +34,7 @@ class User extends Component {
     fetchUserData = async () => {
         try {
             const userId = this.props.match.params.userId;
-            const fetchUserData = await fetch(`https://radiant-citadel-22741.herokuapp.com/auth/profile/user/${userId}`);
+            const fetchUserData = await fetch(`https://skelet-rest-api.herokuapp.com/auth/profile/user/${userId}`);
             const data = await fetchUserData.json()
 
             this.setState({
@@ -48,7 +48,7 @@ class User extends Component {
     fetchUserPosts = async () => {
         try {
             const userId = this.props.match.params.userId;
-            const fetchUserPostsData = await fetch(`https://radiant-citadel-22741.herokuapp.com/posts/user/${userId}`);
+            const fetchUserPostsData = await fetch(`https://skelet-rest-api.herokuapp.com/posts/user/${userId}`);
             const data = await fetchUserPostsData.json()
 
             this.setState({

@@ -36,7 +36,7 @@ class Profile extends Component {
 
     fetchProfile = async () => {
         try {
-            const fetchProfileData = await fetch('https://radiant-citadel-22741.herokuapp.com/auth/profile',
+            const fetchProfileData = await fetch('https://skelet-rest-api.herokuapp.com/auth/profile',
                 {
                     method: 'GET',
                     headers: {
@@ -58,7 +58,7 @@ class Profile extends Component {
 
     fetchProfilePosts = async () => {
         try {
-            const fetchProfilePostsData = await fetch('https://radiant-citadel-22741.herokuapp.com/posts/profile',
+            const fetchProfilePostsData = await fetch('https://skelet-rest-api.herokuapp.com/posts/profile',
                 {
                     method: 'GET',
                     headers: {

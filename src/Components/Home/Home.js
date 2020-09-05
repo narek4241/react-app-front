@@ -18,7 +18,7 @@ class Home extends Component {
 
     fetchPosts = async () => {
         try {
-            const fetchPostsData = await fetch('https://radiant-citadel-22741.herokuapp.com/posts');
+            const fetchPostsData = await fetch('https://skelet-rest-api.herokuapp.com/posts');
             const data = await fetchPostsData.json();
 
             this.setState({
